@@ -1,17 +1,28 @@
 *{
+
     font-family: 'Cairo',sans-serif;
     font-size: 14px;
     font-optical-sizing: auto;
     font-style: normal;
-    
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-h1
+
+nav > ul {
+    list-style-type: none; 
+    padding-left: 0;
+}
+
+:root {
+    --gradient-bg: linear-gradient(#22231B 35%, #193F55 85%);
+}
+
+.logo-text
 {
     font-family: "Noto Serif", serif;
-    font-weight: 150;
-    font-style: "Italic";
+    font-weight: 100;
     font-size: 4vh;
     margin: 0 0 0.2em;
     color:#D9D9D9;
@@ -24,74 +35,103 @@ h1
     background-attachment: fixed;
     background-size:cover;
     background-position: center bottom;
+    height: 100vh;
+
+}
+
+#register-page{
+
+    height:100vh;
+    display:flex;
+    
+}
+
+#left-register{
+    flex: 1; 
+    background-image: url('../../images/Register_body_1.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+#right-register{
+    
+    flex: 1; 
+    background: var(--gradient-bg);
+
+}
+
+.container-start-center-column{
+
     display:flex;
     justify-content:start;
     align-items:center;
     flex-direction:column;
-    height: 100vh;
-
-
 
 }
 
-#login-box {
-    margin-top: 8vh;
+.container-center-center-column{
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+#form-box {
+    margin-top: 8vh;
     gap: 1vh;
 }
 
-.login-form-box{
+#login-form-box{
 
     background-color: #D9D9D9;
     height:35vh;
     width:40vh;
     border-radius:10%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: rgb(0 0 0 / 34%) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     
 }
 
-.form{
+#form-login{
 
-    display:flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
+    
     width: 68%;
     height:100%;
 
 }
 
-.input{
 
-    
+
+#form-register{
+    height:45vh;
+    width:45vh;
+    max-width: 400px; 
+}
+
+
+.input,.input-email{
+
     border: 1px solid gray;
     width: 100%;
     height: 3em;
     padding-left: 0.8em;
     border-radius: 2em;
+    box-shadow: rgb(204 219 232 / 31%) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;    
+}
+.input{
+
     margin: 3% 0%;
-    box-sizing:border-box;
-    box-shadow: rgb(204 219 232 / 31%) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+
 
 }
 
 .input-email{
 
     
-    border: 1px solid gray;
-    width: 100%;
-    height:3em;
-    padding-left: 0.8em;
-    border-radius: 2em;
     margin: 23% 0% 4%;
-    box-sizing:border-box;
-    box-shadow: rgb(204 219 232 / 31%) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    
+    
 
 }
 
@@ -101,16 +141,125 @@ h1
     width: 100%;
     height: 3.5em;
     margin: 18% 0% 10%;
+    border: 2px solid #51555B;
     border-radius: 2em;
-    box-sizing:border-box;
+    
+    
 }
 
 .button-submit:hover{
 
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;}
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    cursor: pointer;
 
+}
+    
 .AlpaEvent-logo{
 
-    height: 14vh;
-    width:14vh;
+    height: 12vh;
+    width: 12vh;
+    
 }
+
+#home{
+    background: var(--gradient-bg);
+    background-size: cover;
+    background-attachment: fixed;
+    height:100vh;
+}
+
+.conainer-space-between-row
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+
+}
+
+.container-center-center-row
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.logo-home
+{
+    
+    margin-left: 1.5em;
+    gap: 1em;
+}
+
+.tekst-home{
+    
+    gap: 4em;
+}
+
+.nav-tekst{
+    font-size:2vh;
+}
+
+.nav-top
+{
+    margin-top:1.5em;
+    width:100%;
+}
+.nav-tekst
+{
+    color:#D9D9D9;
+}
+
+.login-home,.register-home{
+
+    border: 2px solid #51555B;
+    border-radius: 2em;
+    font-size:2vh;  
+    border-radius: 0.2em;
+    width:8em;
+    height: 2.5em;
+    
+
+
+}
+.register-home:hover
+{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.login-home:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.login-home{
+
+    color: #D9D9D9;
+    background: none;
+}
+
+.register-home{
+
+    background-color: #D9D9D9;
+    
+}
+
+.login-register-home{
+    
+    margin-right:1.5em;
+    gap:1em
+    
+}
+
+@media (max-width:850px)
+{
+    #left-register
+    {
+        flex:0
+    }
+}
+
+/* Podzielic na osobne styleshet */

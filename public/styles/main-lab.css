@@ -85,8 +85,8 @@ button {
     }
 }
 
-/* @media (max--device-width: 600px) {
+@media (max-device-width: 600px) {
     #login-page > div {
         width: 100%;
   }
-} */
+}
