@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../styles/main.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lugrasimo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-    <link href="../styles/main.css" rel="stylesheet">
+    <link href="../styles/home.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
 <body id="home">
 
-<nav class="conainer-space-between-row nav-top">
+<nav class="container-space-between-row nav-top">
     <ul class="container-center-center-row logo-home">
         <li>
             <img src="../../images/logo_alpa_event_black_circle_big.svg" class="AlpaEvent-logo">
@@ -46,6 +46,48 @@
         </button>
     </div>
 </nav>
+    <div class ="container-center-center-row">
+        <div id="search-bar-home">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="search-bar" type="text" placeholder="Search for event">
+        </div>
+    </div>
+  
+    <div class="container-space-around-row" id="home-options">
+    
+        <div class="container-center-center-column">
+            <div id="home-box-1">
+            
+            </div>
+            <div class="box-tekst">Create Event</div>
+        </div>
+        
+        <div class="container-center-center-column">
+            <div id="home-box-2">
+            
+            </div>
+            <div class="box-tekst">Create Room</div>
+        </div>
+        
+        <div class="container-center-center-column">
+            <div id="home-box-3">
+            
+            </div>
+            <div class="box-tekst">Invite friends</div>
+        </div>
+       
+    </div>
+    <div id="recent-events-panel">
+        <p id="re-tekst">Your recent events</p>
+        <hr>
+        <div class="container-space-around-row" id="rev-block">
+            <div class="recent-event-block"></div>
+            <div class="recent-event-block"></div>
+            <div class="recent-event-block"></div>
+            <div class="recent-event-block"></div>
+        </div>
+    </div>
+    
     
 </body>
 </html>
