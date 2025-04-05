@@ -1,93 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lugrasimo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lugrasimo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap"
+        rel="stylesheet">
     <link href="../styles/home.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
+
 <body id="home">
 
-<nav class="container-space-between-row nav-top">
-    <ul class="container-center-center-row logo-home">
-        <li>
-            <img src="../../images/logo_alpa_event_black_circle_big.svg" class="AlpaEvent-logo">
-        </li>
-        <li class="logo-text">
-            AlpaEvent
-        </li>
-    </ul>
+    <nav class="container-space-between-row nav-top">
+        <ul class="container-center-center-row logo-home">
+            <li>
+                <img src="../../images/logo_alpa_event_black_circle_big.svg" class="AlpaEvent-logo">
+            </li>
+            <li class="logo-text">
+                AlpaEvent
+            </li>
+        </ul>
 
-    <ul class="container-center-center-row tekst-home">
-     
-        <li class="nav-tekst">
-            EVENTS  
-        </li>
-        <li class="nav-tekst">
-            ROOMS
-        </li>
-        <li class="nav-tekst">
-            FORUM
-        </li>
-    </ul>
+        <ul class="container-center-center-row tekst-home desktop-icons">
 
-    <div class="container-center-center-row login-register-home" >
-        
-        <button class ="login-home" type="button">
-            Log In
-        </button>
+            <li class="nav-tekst">
+                EVENTS
+            </li>
+            <li class="nav-tekst">
+                ROOMS
+            </li>
+            <li class="nav-tekst">
+                FORUM
+            </li>
+        </ul>
 
-        <button class="register-home" type="button">
-            Register
-        </button>
-    </div>
-</nav>
-    <div class ="container-center-center-row">
-        <div id="search-bar-home">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input class="search-bar" type="text" placeholder="Search for event">
+        <div class="container-center-center-row login-register-home">
+
+            <button class="login-home" type="button">
+                Log In
+            </button>
+
+            <button class="register-home" type="button">
+                Register
+            </button>
         </div>
-    </div>
-  
-    <div class="container-space-around-row" id="home-options">
-    
-        <div class="container-center-center-column">
-            <div id="home-box-1">
+
+        <ul class="mobile-icons">
+            <li id="hamburger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </li>
+
+        </ul>
+
+    </nav>
+    <main>
+        <section class="container-center-center-row">
+           
+                <div id="search-bar-home">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input class="search-bar" type="text" placeholder="Search for event">
+                </div>
+           
+        </section>
+        <section class="container-space-around-row" id="home-options">
             
-            </div>
-            <div class="box-tekst">Create Event</div>
-        </div>
-        
-        <div class="container-center-center-column">
-            <div id="home-box-2">
+
+                <div class="container-center-center-column">
+                    <div class="box-tekst">Create Event</div>
+                    <div id="home-box-1">
+                    </div>
+                    
+                </div>
+
+                <div class="container-center-center-column">
+                    <div class="box-tekst">Create Room</div>
+                    <div id="home-box-2">
+                    </div>
             
-            </div>
-            <div class="box-tekst">Create Room</div>
-        </div>
-        
-        <div class="container-center-center-column">
-            <div id="home-box-3">
+                </div>
+
+                <div class="container-center-center-column">
+                    <div class="box-tekst">Invite friends</div>
+                    <div id="home-box-3">
+                    </div>
+                    
+                </div>
+        </section>
+        <section id="recent-events-panel">
             
-            </div>
-            <div class="box-tekst">Invite friends</div>
-        </div>
-       
-    </div>
-    <div id="recent-events-panel">
-        <p id="re-tekst">Your recent events</p>
-        <hr>
-        <div class="container-space-around-row" id="rev-block">
-            <div class="recent-event-block"></div>
-            <div class="recent-event-block"></div>
-            <div class="recent-event-block"></div>
-            <div class="recent-event-block"></div>
-        </div>
-    </div>
-    
-    
+                <p id="re-tekst">Your recent events</p>
+                <hr>
+                <div class="container-space-around-row" id="rev-block">
+                    <div class="recent-event-block"></div>
+                    <div class="recent-event-block"></div>
+                    <div class="recent-event-block"></div>
+                    <div class="recent-event-block"></div>
+                </div>
+            
+        </section>
+    </main>
 </body>
+
 </html>
