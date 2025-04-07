@@ -11,9 +11,21 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const menuIcon = document.querySelector("#hamburger-menu");
+    const menu = document.querySelector("#aside");
+    const infoMobile = document.querySelector("#room-info-mobile");
+
+    menuIcon.addEventListener("click",()=>{
+
+    menu.classList.toggle("show-element");
+    infoMobile.classList.toggle("hide-element");
+})
+
     // Sprawdzamy szerokość okna przy załadowaniu strony
     handleWithChange(mq);
 
     // Nasłuchujemy zmiany rozmiaru okna
     mq.addEventListener('change', handleWithChange);
 });
+
+
