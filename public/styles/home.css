@@ -318,11 +318,6 @@ nav > ul {
     display: none;
 }
 
-/* #home-box-1:hover .box-tekst,#home-box-2:hover .box-tekst,#home-box-3:hover .box-tekst
-{
-    display: none;
-} find another way*/
-
 .box-tekst, #re-tekst
 {
     font-size:1.5em;
