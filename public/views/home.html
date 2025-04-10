@@ -9,17 +9,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lugrasimo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap"
         rel="stylesheet">
-    <link href="../styles/home.css" rel="stylesheet">
+    <link href="public/styles/home.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
+    <script src="public/scripts/home.js" defer></script>
     <title>Home</title>
 </head>
 
 <body id="home">
 
     <nav class="container-space-between-row nav-top">
+        
+        
+        
         <ul class="container-center-center-row logo-home">
             <li>
-                <img src="../../images/logo_alpa_event_black_circle_big.svg" class="AlpaEvent-logo">
+                <img src="/images/logo_alpa_event_black_circle_big.svg" class="AlpaEvent-logo">
             </li>
             <li class="logo-text">
                 AlpaEvent
@@ -59,49 +63,74 @@
 
     </nav>
     <main>
+        <aside id="mobile-menu" class="container-center-center-column">
+            <ul class="container-space-between-column">
+
+                <li class="nav-tekst">
+                    EVENTS
+                </li>
+                <li class="nav-tekst">
+                    ROOMS
+                </li>
+                <li class="nav-tekst">
+                    FORUM
+                </li>
+                <li>
+                    <button class="login-home" type="button">
+                        Log In
+                    </button>
+                </li>
+                <li>
+                    <button class="register-home" type="button">
+                        Register
+                    </button>
+                </li>
+            </ul>
+        </aside>
+        <!-- Look at this aside later -->
         <section class="container-center-center-row">
-           
-                <div id="search-bar-home">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input class="search-bar" type="text" placeholder="Search for event">
-                </div>
-           
+
+            <div id="search-bar-home">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search-bar" type="text" placeholder="Search for event">
+            </div>
+
         </section>
         <section class="container-space-around-row" id="home-options">
-            
 
-                <div class="container-center-center-column">
-                    <div class="box-tekst">Create Event</div>
-                    <div id="home-box-1">
-                    </div>
-                    
+
+            <div class="container-center-center-column">
+                <div class="box-tekst">Create Event</div>
+                <div id="home-box-1">
                 </div>
 
-                <div class="container-center-center-column">
-                    <div class="box-tekst">Create Room</div>
-                    <div id="home-box-2">
-                    </div>
-            
+            </div>
+
+            <div class="container-center-center-column">
+                <div class="box-tekst">Create Room</div>
+                <div id="home-box-2">
                 </div>
 
-                <div class="container-center-center-column">
-                    <div class="box-tekst">Invite friends</div>
-                    <div id="home-box-3">
-                    </div>
-                    
+            </div>
+
+            <div class="container-center-center-column">
+                <div class="box-tekst">Invite friends</div>
+                <div id="home-box-3">
                 </div>
+
+            </div>
         </section>
         <section id="recent-events-panel">
-            
-                <p id="re-tekst">Your recent events</p>
-                <hr>
-                <div class="container-space-around-row" id="rev-block">
-                    <div class="recent-event-block"></div>
-                    <div class="recent-event-block"></div>
-                    <div class="recent-event-block"></div>
-                    <div class="recent-event-block"></div>
-                </div>
-            
+
+            <p id="re-tekst">Your recent events</p>
+            <hr>
+            <div class="container-space-around-row" id="rev-block">
+                <div class="recent-event-block"></div>
+                <div class="recent-event-block"></div>
+                <div class="recent-event-block"></div>
+                <div class="recent-event-block"></div>
+            </div>
+
         </section>
     </main>
 </body>

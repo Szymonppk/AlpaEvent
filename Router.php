@@ -8,13 +8,23 @@ class Router
 
     public static function get($url,$controller)
     {
+        if(strpos($url,'-') !== false)
+        {
+            $url = str_replace('-','_',$url);
+        }
+
         self::$routes[$url] = $controller;
 
     }
 
     public static function run($url)
     {
-        $action = explode("/",$url)[0];
+        if(strpos($url,'-') !== false)
+        {
+            $url = str_replace('-','_',$url);
+        }
+    
+        $action = explode('/',$url)[0];
 
         if(!array_key_exists($action,self::$routes))
         {
