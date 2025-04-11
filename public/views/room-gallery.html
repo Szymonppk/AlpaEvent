@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/styles/room-event-info.css" rel="stylesheet">
+    <link href="public/styles/room-gallery.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/room.js"></script>
     <title>Room Gallery</title>
@@ -23,9 +23,10 @@
                 <p class="room-info-mobile">(Gallery)</p>
                 </div>    
             </div>
+            <a href="/home">
             <img src="/images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
                 class="AlpaEvent-logo-mobile">
-
+            </a>    
             <ul class="mobile-icons">
                 <li id="hamburger-menu">
                     <i class="fa-solid fa-bars"></i>
@@ -45,26 +46,56 @@
 
             </div>
             <ul class="container-center-center-column room-options">
-                <li class="room-option container-center-center-row"><i
-                        class="fa-solid fa-house"></i><span class="option-text">Dashboard</span></li>
-                <li class="room-option container-center-center-row"><i class="fa-solid fa-circle-info"></i><span
-                        class="option-text">Event Info</span></li>
-                <li class="room-option container-center-center-row"><i class="fa-solid fa-wallet"></i><span
-                        class="option-text">Event settlements</span></li>
-                <li class="room-option container-center-center-row"><i class="fa-solid fa-map"></i><span
-                        class="option-text">Event plan</span></li>
-                <li class="room-option container-center-center-row"><i class="fa-solid fa-comment"></i><span
-                        class="option-text">Chat</span></li>
-                <li class="room-option container-center-center-row" id="option-selection"><i class="fa-solid fa-camera"></i><span
-                        class="option-text">Gallery</span></li>
-                <li class="room-option container-center-center-row"><i class="fa-solid fa-people-group"></i><span
-                        class="option-text">Team</span></li>
-                <li class="room-option container-center-center-row"><i class="fa-solid fa-gear"></i><span
-                        class="option-text">Settings</span></li>
+                <li class="room-option container-center-center-row">
+                    <a href="/room-dashboard">
+                        <i class="fa-solid fa-house"></i><span class="option-text">Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li class="room-option container-center-center-row">
+                    <a href="/room-event-info">
+                        <i class="fa-solid fa-circle-info"></i><span class="option-text">Event Info</span>
+                    </a>
+                </li>
+
+                <li class="room-option container-center-center-row">
+                    <a href="/room-event-settlements">
+                        <i class="fa-solid fa-wallet"></i><span class="option-text">Event settlements</span>
+                    </a>
+                </li>
+                <li class="room-option container-center-center-row">
+                    <a href="/room-event-plan">
+                        <i class="fa-solid fa-map"></i><span class="option-text">Event plan</span>
+                    </a>
+                </li>
+                <li class="room-option container-center-center-row">
+                    <a href="/room-chat">
+                        <i class="fa-solid fa-comment"></i><span class="option-text">Chat</span>
+                    </a>
+                </li>
+                <li class="room-option container-center-center-row" id="option-selection">
+                    <a href="/room-gallery">
+                        <i class="fa-solid fa-camera"></i><span class="option-text">Gallery</span>
+                    </a>
+                </li>
+                <li class="room-option container-center-center-row">
+                    <a href="/room-team">
+                        <i class="fa-solid fa-people-group"></i><span class="option-text">Team</span>
+                    </a>
+                </li>
+                <li class="room-option container-center-center-row">
+
+                    <a href="/room-settings">
+                        <i class="fa-solid fa-gear"></i><span class="option-text">Settings</span>
+                    </a>
+                </li>
             </ul>
             <div class="container-center-center-column logo-options">
-                <img src="../../images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
-                    class="AlpaEvent-logo">
+                <a href="/home">
+                    <img src="../../images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
+                        class="AlpaEvent-logo">
+                </a>
                 <ul class="container-center-center-column room-options">
                     <li class="room-option container-center-center-row"><i class="fa-solid fa-question"></i><span
                             class="option-text">Help</span></li>

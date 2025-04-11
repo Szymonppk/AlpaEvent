@@ -137,6 +137,26 @@ ul {
 
 }
 
+.container-space-around-column
+{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+   
+
+}
+
+a
+{
+    text-decoration: none;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1em;
+
+}
+
 .container-center-center-row
 {
     display: flex;
@@ -371,16 +391,22 @@ hr{
     color: #D9D9D9;
 }
 
-
+.hide-element
+{
+    display: none !important;
+}
 
 @media (max-width:1000px)
 {
+    main{
+        position:relative;
+    }
 
     #mobile-menu{
-        float:right;
-        margin-right: 2em;
+        right:0;
         background-color: #51555B;
-        border-radius: 1em;
+        position:absolute;
+        border-top-left-radius: 2em;
     }
 
     #mobile-menu>ul
