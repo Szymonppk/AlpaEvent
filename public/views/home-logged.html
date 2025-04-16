@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lugrasimo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap"
         rel="stylesheet">
-    <link href="public/styles/home.css" rel="stylesheet">
+    <link href="public/styles/home-logged.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/home.js" defer></script>
     <title>Home</title>
@@ -19,10 +19,8 @@
 
     <nav class="container-space-between-row nav-top">
 
-
-
         <ul class="container-center-center-row logo-home">
-            <a href="/home">
+            <a href="/home-logged">
                 <li>
                     <img src="/images/logo_alpa_event_black_circle_big.svg" class="AlpaEvent-logo">
                 </li>
@@ -49,21 +47,11 @@
                 </li>
             </a>
         </ul>
-
-        <div class="container-center-center-row login-register-home">
-
-            <a href="/login">
-                <button class="login-home" type="button">
-                    Log In
-                </button>
-            </a>
-            <a href="/register">
-                <button class="register-home" type="button">
-                    Register
-                </button>
-            </a>
-        </div>
-
+        <a href="/user-profile">
+            <div class="container-center-center-row login-register-home user-panel">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </a>
         <ul class="mobile-icons">
             <li id="hamburger-menu">
                 <i class="fa-solid fa-bars"></i>
@@ -85,23 +73,16 @@
                         ROOMS
                     </li>
                 </a>
-                <a href="/forum"></a>
-                <li class="nav-tekst">
-                    FORUM
-                </li>
+                <a href="/forum">
+                    <li class="nav-tekst">
+                        FORUM
+                    </li>
                 </a>
                 <li>
-                    <a href="/login">
-                        <button class="login-home" type="button">
-                            Log In
-                        </button>
-                    </a>
-                </li>
-                <li>
-                    <a href="/register">
-                        <button class="register-home" type="button">
-                            Register
-                        </button>
+                    <a href="/user-profile">
+                        <div class="container-center-center-row user-panel">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
                     </a>
                 </li>
             </ul>
@@ -120,7 +101,7 @@
 
             <div class="container-center-center-column">
                 <div class="box-tekst">Create Event</div>
-                <a href="/create-event">
+                <a href="/create-event.html">
                     <div id="home-box-1">
                     </div>
                 </a>
@@ -133,6 +114,7 @@
                     <div id="home-box-2">
                     </div>
                 </a>
+
             </div>
 
             <div class="container-center-center-column">

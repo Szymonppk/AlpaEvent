@@ -8,7 +8,7 @@ $path = parse_url($path,PHP_URL_PATH);
 $paths =
 ['login','register','home','room-dashboard','room-event-info',        
 'room-event-info','room-event-settlements','room-event-plan',
- 'room-chat', 'room-gallery','room-team', 'room-settings'];
+ 'room-chat', 'room-gallery','room-team', 'room-settings','create-event'];
 
 for($i=0;$i<count($paths);$i++)
 {

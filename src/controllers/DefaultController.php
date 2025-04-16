@@ -60,5 +60,9 @@ class DefaultController extends AppController{
         $this->render("room-settings");
     }
 
+    public function create_event()
+    {
+        $this->render('create-event');
+    }
 
 }
