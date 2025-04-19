@@ -49,3 +49,4 @@ const autocomplete = new google.maps.places.Autocomplete(input, {
   types: ['geocode'],
   fields: ['formatted_address', 'geometry']
 });
+
