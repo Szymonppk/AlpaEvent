@@ -65,11 +65,54 @@ ul {
     color: #122620;
     width: 80%;
     height: 3.5em;
-    margin: 1em;
     border: 2px solid #51555B;
     border-radius: 2em;
     
     
+}
+
+.profile-option a {
+    display: flex; 
+    width: 100%;
+    align-items: center;
+    color: inherit;
+    padding: 1em;
+    text-decoration: none;
+}
+
+
+.profile-options
+{
+    gap:1em;
+    width: 80%;
+    
+
+}
+
+.profile-option i {
+    font-size: 1em; 
+}
+
+
+.profile-option {
+    background-color: #D9D9D9;
+    width: 100%;
+    border-radius: 0.6em;
+    height: 2.3em;
+    text-align: center;
+    border: #193F55 1px solid;
+}
+
+.profile-option:hover
+{
+    background-color: #92A8D1;
+    cursor: pointer;
+}
+
+.option-text
+{
+  margin: 0 auto;
+  
 }
 
 .button-submit:hover,.button-delete:hover{
@@ -311,6 +354,7 @@ main
     
     height: 90vh;
     width: 100%;
+    
 }
 
 .main-text
@@ -456,4 +500,17 @@ main
         font-size: 2.5vh;
     }
 
+    .option-text
+    {
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width:600px)
+{
+    .option-text
+    {
+        font-size: 2vw;
+    }
 }

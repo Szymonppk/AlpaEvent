@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="../styles/user-profile.css" rel="stylesheet">
+    <link href="public/styles/user-profile.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lugrasimo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=UnifrakturCook:wght@700&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
-    <script src="../scripts/rooms-events.js" defer></script>
+    <script src="public/scripts/rooms-events.js" defer></script>
 
     <title>Profile</title>
 </head>
@@ -60,6 +60,7 @@
         </ul>
 
     </nav>
+    <!-- Check sizing of main on zoom-->
     <main class="container-center-center-column">
         <aside id="mobile-menu" class="container-center-center-column">
             <ul class="container-space-around-column">
@@ -90,7 +91,19 @@
         <p class="main-text">Profile</p>
 
         <div class="main-content container-start-center-row">
-            <div id="user-options">
+            <div id="user-options" class="container-center-center-column">
+                <ul class="container-center-center-column profile-options">
+                    <li class="profile-option container-center-center-row">
+                        <a href="/user-profile-friends">
+                            <i class="fa-solid fa-people-group"></i><span class="option-text">Friends</span>
+                        </a>
+                    </li>
+                    <li class="profile-option container-center-center-row">
+                        <a>
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
+                        </a>
+                    </li>
+                </ul>
 
             </div>
             <div id="user-data-box" class="container-start-center-row">
@@ -98,7 +111,7 @@
                     <form id="data-form">
                         <input placeholder="username" type="text" class="input">
                         <input placeholder="email" type="email" class="input">
-                        <input placeholder="password" type="password" class="input"> 
+                        <input placeholder="password" type="password" class="input">
                         <button type="submit" class="button-submit">Change</button>
                     </form>
                     <button class="button-delete">Delete account</button>
