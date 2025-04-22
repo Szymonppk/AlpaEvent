@@ -65,4 +65,37 @@ class DefaultController extends AppController{
         $this->render('create-event');
     }
 
+    public function user_profile()
+    {
+        $this->render('user-profile');
+    }
+
+    public function user_profile_friends()
+    {
+        $this->render('user-profile-friends');
+    }
+
+    public function forum()
+    {
+        $this->render('forum');
+    }
+
+    
+    public function user_rooms()
+    {
+        $this->render('user-rooms');
+    }
+
+    
+    public function user_events()
+    {
+        $this->render('user-events');
+    }
+
+    public function home_logged()
+    {
+        $this->render('home-logged');
+    }
+    
+
 }

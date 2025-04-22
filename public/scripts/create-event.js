@@ -44,9 +44,13 @@ menuIcon.addEventListener("click", () => {
 
 });
 
+
+function initMap()
+{
 const input = document.getElementById('event_location');
 const autocomplete = new google.maps.places.Autocomplete(input, {
   types: ['geocode'],
   fields: ['formatted_address', 'geometry']
 });
+}
 

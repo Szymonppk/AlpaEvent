@@ -22,6 +22,7 @@ nav > ul {
     justify-content: start;
     color: inherit;
     text-decoration: none;
+    padding: 1em;
 }
 
 
@@ -252,7 +253,7 @@ main{
     border-radius: 0.6em;
     height: 2.3em;
     text-align: center;
-    padding: 1em;
+    
 }
 
 .logo-options
