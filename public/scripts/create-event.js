@@ -37,7 +37,7 @@ event_photo_input.addEventListener('change', function () {
     }
 });
 
-menuIcon.addEventListener("click", () => {
+menuIcon.addEventListener("click", () => {  
 
     menu.classList.toggle("show-element");
 

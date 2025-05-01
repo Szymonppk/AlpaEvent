@@ -19,6 +19,8 @@ for($i=0;$i<count($paths);$i++)
     Router::get($paths[$i],'DefaultController');
 }
 
+Router::post('login','SecurityController');
+
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');
 // Router::get('home','DefaultController');

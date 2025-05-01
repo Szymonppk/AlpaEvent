@@ -1,12 +1,24 @@
 <?php
 
 require_once 'src/controllers/DefaultController.php';
+require_once 'src/controllers/SecurityController.php';
 
 class Router
 {
     public static $routes;
 
     public static function get($url,$controller)
+    {
+        if(strpos($url,'-') !== false)
+        {
+            $url = str_replace('-','_',$url);
+        }
+
+        self::$routes[$url] = $controller;
+
+    }
+
+    public static function post($url,$controller)
     {
         if(strpos($url,'-') !== false)
         {
