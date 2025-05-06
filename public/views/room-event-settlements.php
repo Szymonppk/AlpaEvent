@@ -97,11 +97,19 @@
                         class="AlpaEvent-logo">
                 </a>
                 <ul class="container-center-center-column room-options">
-                    <li class="room-option container-center-center-row"><i class="fa-solid fa-question"></i><span
-                            class="option-text">Help</span></li>
-                    <li class="room-option container-center-center-row"><i
-                            class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
+                    <li class="room-option container-center-center-row">
+                    <a>    
+                    <i class="fa-solid fa-question"></i>
+                    
+                    <span class="option-text">Help</span>
+                    </a>
                     </li>
+                    
+                            <li class="room-option container-center-center-row">
+                            <a>    
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
+                            </a>
+                        </li>
                 </ul>
             </div>
         </aside>
