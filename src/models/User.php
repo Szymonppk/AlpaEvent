@@ -1,7 +1,5 @@
 <?php
 
-
-
 class User
 {
     private $email;
@@ -38,23 +36,15 @@ class User
 
     public function getName(): string
     {
-        return $this->name;
+        return $this->username;
     }
 
     public function setName(string $name)
     {
-        $this->name = $name;
+        $this->username = $name;
     }
 
-    public function getSurname(): string
-    {
-        return $this->surname;
-    }
 
-    public function setSurname(string $surname)
-    {
-        $this->surname = $surname;
-    }
 
 
 

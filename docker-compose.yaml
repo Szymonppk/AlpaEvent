@@ -49,9 +49,12 @@ services:
       - "5050:80"
     networks:
       - pg-network
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
   
 networks:
   pg-network:
 
 volumes:
   pg-data:
+  pgadmin-data:

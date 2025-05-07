@@ -14,6 +14,11 @@ nav > ul {
     padding-left: 0;
 }
 
+.error-message
+{
+    color:#FF7081;
+}
+
 a
 {
     text-decoration: none;

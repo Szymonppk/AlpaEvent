@@ -20,6 +20,9 @@ class AppController{
     }
     protected function render(string $template=null,array $variables=[])
     {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $templatePath = "public/views/".$template.".php";
         $output = "File not found";
 

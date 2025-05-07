@@ -18,11 +18,21 @@
         <img src="/images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo" class="AlpaEvent-logo">
         <h1 class="logo-text">AlpaEvent</h1>
         </a>
-            <form id="form-register" class="container-start-center-column">
-                <input placeholder="username" type="username" class="input">
-                <input placeholder="email" type="email" class="input">
-                <input placeholder="password" type="password" class ="input">
-                <button type="submit" class="button-submit">Register</button>
+        <div class="error-message">
+            <?php if(isset($messages))
+                {
+                    foreach($messages as $message)
+                    {
+                        echo $message;
+                    }
+                }
+                ?>
+        </div>
+            <form id="form-register" class="container-start-center-column" method="POST">
+                <input name = "username" placeholder="username" type="username" class="input">
+                <input name = "email" placeholder="email" type="email" class="input">
+                <input name = "password" placeholder="password" type="password" class ="input">
+                <button type = "submit" class="button-submit">Register</button>
             </form>
        
         </div>

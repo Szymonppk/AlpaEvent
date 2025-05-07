@@ -27,6 +27,11 @@ RUN apk add --no-cache --virtual .build-deps $BUILD_DEPS \
     && docker-php-ext-install -j "$(nproc)" $PHP_EXTENSIONS \
     && apk del .build-deps
 
+RUN apk add --no-cache postgresql-dev \
+&& docker-php-ext-install pdo pdo_pgsql
+
+
+
 RUN apk add --no-cache --virtual .run-deps $RUN_DEPS
 
 RUN echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;

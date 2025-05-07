@@ -20,6 +20,7 @@ for($i=0;$i<count($paths);$i++)
 }
 
 Router::post('login','SecurityController');
+Router::post('register','SecurityController');
 
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');
