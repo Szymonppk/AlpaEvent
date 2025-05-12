@@ -21,6 +21,9 @@ for($i=0;$i<count($paths);$i++)
 
 Router::post('login','SecurityController');
 Router::post('register','SecurityController');
+Router::get('search-user', 'FriendController');
+Router::post('add-friend','FriendController');
+Router::get('get-friends','FriendController');
 
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');

@@ -12,7 +12,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/rooms-events.js" defer></script>
-
+    <script src="public/scripts/user-profile-friends.js" defer></script>
     <title>Friends</title>
 </head>
 
@@ -91,29 +91,16 @@
 
         <div class="main-content">
             <div class="container-start-center-column">
-            <input type="Search" placeholder="Search friend..." class="input">
-            <div class="friend-box">
-                
-            </div>
-            <div class="friend-box">
+                <input type="Search" placeholder="Search friend..." class="input">
+                <div class="search-result container-center-center-column"></div>
+                        <hr>
+                        <p>Your friends</p>
+                        <div class="static-friend container-center-center-column">
+                            
+                        </div>
+                    
 
-            </div>
-            <div class="friend-box">
-
-            </div>
-            <div class="friend-box">
-
-            </div>
-            <div class="friend-box">
-
-            </div>
-            <div class="friend-box">
-
-            </div>
-           
-        </div>
-            
-        </div>
+                </div>
     </main>
 
 </body>

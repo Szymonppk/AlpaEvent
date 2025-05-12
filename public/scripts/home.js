@@ -6,6 +6,21 @@ const boxText = document.querySelectorAll(".box-tekst");
 const homeBox1 = document.querySelector("#home-box-1");
 const homeBox2 = document.querySelector("#home-box-2");
 const homeBox3 = document.querySelector("#home-box-3");
+const username_letters = document.querySelector(".username-letters");
+const username = username_letters.dataset.username;
+const welcome_message = "Hello, " + username + "!";
+let index_l = 0;
+
+function typeWriter()
+{
+    if(index_l < welcome_message.length)
+    {
+        username_letters.innerHTML += welcome_message.charAt(index_l);
+        index_l++;
+        setTimeout(typeWriter,100);
+    }
+}
+
 menuIcon.addEventListener("click", () => {
 
     menu.classList.toggle("show-element");
@@ -43,3 +58,5 @@ homeBox3.addEventListener("mouseleave",()=> {
 
     boxText[2].classList.toggle("hide-element");
 });
+
+typeWriter();

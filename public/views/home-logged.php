@@ -49,6 +49,7 @@
         </ul>
         <ul class="login-register-home">
             <a href="/user-profile">
+            <div class="username-letters" data-username="<?php echo $_SESSION['user']['username'];?>"></div>
                 <div class="container-center-center-row user-panel">
                     <i class="fa-solid fa-user"></i>
                 </div>

@@ -29,7 +29,7 @@ class SecurityController extends AppController
         
         $result_hashed = UserDAO::findHashedPassword($email,$password);
         
-        if(password_verify($password,$result_hashed))
+        if(!password_verify($password,$result_hashed))
         {
             return $this->render("login",['messages'=>['User with this password does not exist.']]);
         }

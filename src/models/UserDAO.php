@@ -7,7 +7,7 @@ class UserDAO
     public static function findByEmail($email)
     {   
         $db = (new Database())->getConnection();
-        $stmt = $db->prepare('SELECT * FROM user WHERE email=:email');
+        $stmt = $db->prepare('SELECT * FROM alpa_user WHERE email=:email');
         $stmt->bindParam(':email',$email);
         $stmt->execute();
 
@@ -18,7 +18,7 @@ class UserDAO
     public static function findByUsername($username)
     {   
         $db = (new Database())->getConnection();
-        $stmt = $db->prepare('SELECT * FROM user WHERE username=:username');
+        $stmt = $db->prepare('SELECT * FROM alpa_user WHERE username=:username');
         $stmt->bindParam(':username',$username);
         $stmt->execute();
 
@@ -30,7 +30,7 @@ class UserDAO
     {
         $db = (new Database())->getConnection();
         $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
-        $stmt = $db->prepare('INSERT INTO user (email,password,username) VALUES (:email,:password,:username)');
+        $stmt = $db->prepare('INSERT INTO alpa_user (email,password,username) VALUES (:email,:password,:username)');
         $stmt->bindParam(':email',$email);
         $stmt->bindParam(':password',$hashed_pass);
         $stmt->bindParam(':username',$username);
@@ -41,7 +41,7 @@ class UserDAO
     public static function findHashedPassword($email,$input_password)
     {
         $db = (new Database())->getConnection();
-        $stmt= $db->prepare('SELECT password FROM user WHERE email=:email');
+        $stmt= $db->prepare('SELECT password FROM alpa_user WHERE email=:email');
         $stmt->bindParam(':email',$email);
         $stmt->execute();
 
@@ -52,7 +52,7 @@ class UserDAO
             return false;
         }
 
-        return $result;
+        return $result['password'];
     }
 
 }

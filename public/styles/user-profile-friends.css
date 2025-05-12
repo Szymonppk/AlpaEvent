@@ -334,6 +334,48 @@ main
     border: #122620 2px solid;
     border-radius: 2em;
     margin:1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.friend-item
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+hr
+{
+    color: #22231B;
+    font-size: 1em;
+    width: 100%;
+}
+.friend-item > button
+{
+    height: 3em;
+    width: 3em;
+    background-color: #122620;
+    color: #A29D9D;
+    border: 2px solid #51555B;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.static-friend
+{
+    width: 100%;
+}
+
+.search-result
+{
+    width:100%;
 }
 
 @media (max-width:1000px)
