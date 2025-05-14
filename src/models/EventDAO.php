@@ -8,7 +8,7 @@ class EventDAO
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('
-    INSERT INTO event (event_name, event_date, event_location, event_type, photo, description)
+    INSERT INTO "event" (event_name, event_date, event_location, event_type, photo, description)
     VALUES (:event_name, :event_date, :event_location, :event_type, :photo, :description)
     ');
 
@@ -16,7 +16,7 @@ class EventDAO
         $event_date = $event->getDate();
         $event_location = $event->getLocation();
         $event_type = $event->getType();
-        $photo = $event->getPhoto();              
+        $photo = $event->getPhoto();
         $description = $event->getDescription();
 
         $stmt->bindParam(':event_name', $event_name);
@@ -24,7 +24,7 @@ class EventDAO
         $stmt->bindParam(':event_location', $event_location);
         $stmt->bindParam(':event_type', $event_type);
         $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':photo', $photo, PDO::PARAM_LOB);
+        $stmt->bindValue(':photo', $photo, PDO::PARAM_LOB);
 
 
 
@@ -52,5 +52,20 @@ class EventDAO
         }
 
         return true;
+    }
+
+    public static function get_events($user_id)
+    {
+        $db = (new Database())->getConnection();
+        $stmt = $db->prepare('SELECT * from "event"');
+
+        $success = $stmt->execute();
+
+        if (!$success) {
+            error_log("DAO: Błąd wykonania zapytania: " . implode(" | ", $stmt->errorInfo()));
+            return false;
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

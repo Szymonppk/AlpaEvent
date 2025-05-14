@@ -92,8 +92,8 @@ class SecurityController extends AppController
         session_unset();
         session_destroy();
 
-        $url = "http://".$_SERVER['HTTP_HOST'];
-        header("Location: {$url}/login");
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true]);
         exit();
     }
 

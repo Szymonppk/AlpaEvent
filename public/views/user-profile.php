@@ -12,7 +12,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/rooms-events.js" defer></script>
-
+     <script src="public/scripts/user-profile.js" defer></script>
     <title>Profile</title>
 </head>
 
@@ -98,7 +98,7 @@
                             <i class="fa-solid fa-people-group"></i><span class="option-text">Friends</span>
                         </a>
                     </li>
-                    <li class="profile-option container-center-center-row">
+                    <li class="profile-option container-center-center-row" id="logout">
                         <a>
                         <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
                         </a>

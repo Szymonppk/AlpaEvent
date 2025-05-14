@@ -91,24 +91,7 @@
         <p class="main-text">Events</p>
 
         <div class="main-content container-center-center-row-wrap">
-            <div class="event-box">
-
-            </div>
-            <div class="event-box">
-
-            </div>
-            <div class="event-box">
-
-            </div>
-            <div class="event-box">
-
-            </div>
-            <div class="event-box">
-
-            </div>
-            <div class="event-box">
-
-            </div>
+            
         </div>
     </main>
 

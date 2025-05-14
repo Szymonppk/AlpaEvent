@@ -32,6 +32,8 @@ ul {
     
 }
 
+
+
 .input{
 
     margin: 3% 0%;
@@ -302,6 +304,13 @@ main
     
 }
 
+.event-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .event-box
 {
     background-color: #122620;
