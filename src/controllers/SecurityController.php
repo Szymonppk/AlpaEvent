@@ -9,10 +9,6 @@ class SecurityController extends AppController
     public function login()
     {
 
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
         if (!$this->isPost()) {
             return $this->render("login");
         }
@@ -48,10 +44,7 @@ class SecurityController extends AppController
 
     public function register()
     {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
+        
         if(!$this->isPost())
         {
             return $this->render("register");
@@ -86,6 +79,7 @@ class SecurityController extends AppController
 
             'email' => $email,
             'username' => $username
+            
         ];
         
         $url = "http://".$_SERVER['HTTP_HOST'];
@@ -95,9 +89,6 @@ class SecurityController extends AppController
 
     public function logout()
     {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
         session_unset();
         session_destroy();
 

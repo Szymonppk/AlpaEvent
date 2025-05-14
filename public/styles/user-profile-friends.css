@@ -378,6 +378,11 @@ hr
     width:100%;
 }
 
+.your-friends
+{
+    text-align: center;
+}
+
 @media (max-width:1000px)
 {
 

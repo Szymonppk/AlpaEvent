@@ -24,6 +24,7 @@ Router::post('register','SecurityController');
 Router::get('search-user', 'FriendController');
 Router::post('add-friend','FriendController');
 Router::get('get-friends','FriendController');
+Router::post('create-event','EventController');
 
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');

@@ -89,18 +89,15 @@
         </aside>
         <p class="main-text">Friends</p>
 
-        <div class="main-content">
-            <div class="container-start-center-column">
-                <input type="Search" placeholder="Search friend..." class="input">
-                <div class="search-result container-center-center-column"></div>
-                        <hr>
-                        <p>Your friends</p>
-                        <div class="static-friend container-center-center-column">
-                            
-                        </div>
-                    
+        <div class="main-content container-start-center-column">
+            <input type="Search" placeholder="Search friend..." class="input">
+            <div class="search-result container-center-center-column"></div>
+            <hr>
+            <p class="your-friends">Your friends</p>
+            <div class="static-friend container-center-center-column">
 
-                </div>
+            </div>
+
     </main>
 
 </body>

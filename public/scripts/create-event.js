@@ -3,24 +3,6 @@ const preview = document.getElementById('preview');
 const menuIcon = document.querySelector(".mobile-icons");
 const menu = document.querySelector("#mobile-menu");
 const form = document.querySelector("#event-form");
-const create_event_button = document.querySelector(".button-submit");
-const create_event_room_button = document.querySelector(".button-submit-2");
-
-form.addEventListener("submit",(event)=>{
-
-    event.preventDefault();
-
-    if(event.submitter == create_event_button)
-    {
-        window.location.href="/user-events"
-    }
-    else if(event.submitter==create_event_room_button)
-    {
-        window.location.href="/room-dashboard"
-
-    }
-
-});
 
 
 event_photo_input.addEventListener('change', function () {

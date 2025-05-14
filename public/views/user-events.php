@@ -12,7 +12,8 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/rooms-events.js" defer></script>
-
+    <script src="public/scripts/user-events.js" defer></script>
+    
     <title>User Events</title>
 </head>
 

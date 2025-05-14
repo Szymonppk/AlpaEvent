@@ -92,7 +92,7 @@
         <p class="main-text">Create Event</p>
 
         <div class="main-content">
-            <form id="event-form" class="container-center-center-column">
+            <form id="event-form" class="container-center-center-column" action="/create-event" method="POST" enctype="multipart/form-data">
                 <label for="event_name" class="label">Name</label>
                 <input type="text" name="event_name" id="event_name" class="input">
                 <label for="event_date" class="label">Date and Time</label>
@@ -101,24 +101,24 @@
                 <input type="search" id="event_location" name="event_location" placeholder="Type and choose location"
                     class="input">
                 <div class="type-selector">
-                    <input type="radio" id="public" name="event_type">
+                    <input type="radio" id="public" name="event_type" value="public">
                     <label for="public">Public</label>
-                    <input type="radio" id="private" name="event_type">
+                    <input type="radio" id="private" name="event_type" value="private">
                     <label for="private">Private</label>
                 </div>
 
                 <div class="photo-selector container-center-center-column">
                     <label for="event-photo" class="label-upload">Upload Event Photo</label>
-                    <input type="file" id="event-photo" name="event_photo" class="photo-input">
+                    <input type="file" id="event-photo" name="photo" class="photo-input">
                     <br>
                     <img id="preview" src="#" alt="preview">
                     <br>
                 </div>
                 <label for="event-description" class="label">Description</label>
-                <textarea type="textarea" placeholder="Write your description here" name="event_description"
+                <textarea type="textarea" placeholder="Write your description here" name="description"
                     id="event-description"></textarea>
-                <button type="submit" class="button-submit">Create Event</button>
-                <button type="submit" class="button-submit-2">Create Event and Room</button>
+                <button name ='save' type="submit" class="button-submit" value="event">Create Event</button>
+                <button name ='save' type="submit" class="button-submit-2" value="event_and_room">Create Event and Room</button>
             </form>
         </div>
     </main>

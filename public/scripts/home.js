@@ -59,4 +59,9 @@ homeBox3.addEventListener("mouseleave",()=> {
     boxText[2].classList.toggle("hide-element");
 });
 
+homeBox2.addEventListener("click",()=>{
+
+    alert("First create an event or choose one that already exists");
+});
+
 typeWriter();
