@@ -57,9 +57,11 @@ class EventDAO
     public static function get_events($user_id)
     {
         $db = (new Database())->getConnection();
-        $stmt = $db->prepare('SELECT * from "event"');
+        $stmt = $db->prepare('SELECT * from "event" e join event_user eu on e.event_id = eu.event_id where eu.user_id =:user_id');
 
-        $success = $stmt->execute();
+        $success = $stmt->execute([
+            ':user_id' => $user_id
+        ]);
 
         if (!$success) {
             error_log("DAO: Błąd wykonania zapytania: " . implode(" | ", $stmt->errorInfo()));

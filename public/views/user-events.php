@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/rooms-events.js" defer></script>
     <script src="public/scripts/user-events.js" defer></script>
-    
+
     <title>User Events</title>
 </head>
 
@@ -91,7 +91,10 @@
         <p class="main-text">Events</p>
 
         <div class="main-content container-center-center-row-wrap">
-            
+            <div id="optionsMenu" class="options-menu">
+                <button id="createRoomBtn">Create room</button>
+                <button id="joinRoomBtn">Go to room</button>
+            </div>
         </div>
     </main>
 

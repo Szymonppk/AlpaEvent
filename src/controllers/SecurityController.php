@@ -75,10 +75,13 @@ class SecurityController extends AppController
             return $this->render('register',['messages'=>['Error, could not make accont']]);
         }
 
+        $user = UserDAO::findByEmail($email);
+
         $_SESSION['user'] = [
 
-            'email' => $email,
-            'username' => $username
+            'email' => $user['email'],
+            'username' => $user['username'],
+            'user_id' => $user['user_id']
             
         ];
         
