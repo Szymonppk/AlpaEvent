@@ -2,6 +2,8 @@ const menuOption = document.getElementById("optionsMenu");
 
 window.addEventListener("DOMContentLoaded", async () => {
 
+    //AJAX API
+
     const res = await fetch('/get-events');
 
 
@@ -26,7 +28,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         eventBox.style.backgroundPosition = "center";
         eventContainer.classList.add('event-container');
 
-        eventBox.dataset.eventId = event.id;
+        eventBox.dataset.eventId = event.event_id;
 
         mainContent.appendChild(eventContainer);
         eventContainer.appendChild(eventBox);
@@ -55,14 +57,14 @@ window.addEventListener("DOMContentLoaded", async () => {
   createBtn.addEventListener("click", async () => {
     const eventId = menuOption.dataset.eventId;
 
-    
+    console.log("Ustawiono event ID:", eventId);
     const res = await fetch(`/create-room?event_id=${eventId}`, {
       method: 'POST'
     });
 
     if (res.ok) {
       const { roomId } = await res.json();
-      window.location.href = `/room/${roomId}`;
+      window.location.href = `/room/${roomId}/room-dashboard`;
     } else {
       alert("Couldn't create room");
     }
@@ -75,7 +77,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`/get-first-room?event_id=${eventId}`);
     if (res.ok) {
       const { roomId } = await res.json();
-      window.location.href = `/room/${roomId}`;
+      window.location.href = `/room/${roomId}/room-dashboard`;
     } else {
       alert("Couldn't find room");
     }

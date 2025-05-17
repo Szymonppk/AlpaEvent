@@ -4,6 +4,7 @@ require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/FriendController.php';
 require_once 'src/controllers/EventController.php';
+require_once 'src/controllers/RoomController.php';
 
 class Router
 {
@@ -38,7 +39,10 @@ class Router
             $url = str_replace('-','_',$url);
         }
     
-        $action = explode('/',$url)[0];
+        $parts= explode('/',$url);
+
+        $action = $parts[0];
+        $params = array_slice($parts, 1);
 
         if(!array_key_exists($action,self::$routes))
         {
@@ -48,7 +52,17 @@ class Router
         $controller = self::$routes[$action];
         $object = new $controller;
 
-        $object->$action();
+
+        if(!empty($params))
+        {
+            $object->$action($params);
+        }
+        else
+        {
+
+            $object->$action();
+        }
+        
 
         
     }

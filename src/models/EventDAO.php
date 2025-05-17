@@ -32,7 +32,7 @@ class EventDAO
 
 
         if (!$check) {
-            error_log("Błąd INSERT event: " . implode(" | ", $stmt->errorInfo()));
+            error_log("Error INSERT event: " . implode(" | ", $stmt->errorInfo()));
             return false;
         }
 
@@ -47,7 +47,7 @@ class EventDAO
 
 
         if (!$check_2) {
-            error_log("Błąd INSERT event_user: " . implode(" | ", $stmt_2->errorInfo()));
+            error_log("Error INSERT event_user: " . implode(" | ", $stmt_2->errorInfo()));
             return false;
         }
 
@@ -69,5 +69,23 @@ class EventDAO
         }
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function get_event_by_id($event_id)
+    {
+        $db = (new Database())->getConnection();
+        $stmt = $db->prepare('SELECT * from "event" where event_id =:event_id');
+
+        $success = $stmt->execute([
+            ':event_id' => $event_id
+        ]);
+
+        if (!$success) {
+            error_log("DAO: Błąd wykonania zapytania: " . implode(" | ", $stmt->errorInfo()));
+            return false;
+        }
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
     }
 }

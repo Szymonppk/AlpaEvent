@@ -27,6 +27,7 @@ Router::get('get-friends','FriendController');
 Router::post('create-event','EventController');
 Router::get('get-events','EventController');
 Router::post('logout','SecurityController');
+Router::post('create-room', 'RoomController');
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');
 // Router::get('home','DefaultController');
