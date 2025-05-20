@@ -3,6 +3,7 @@
 require_once "AppController.php";
 require_once __DIR__ . "/../models/Event.php";
 require_once __DIR__ . "/../models/EventDAO.php";
+require_once __DIR__ . "/../models/RoomDAO.php";
 
 class EventController extends AppController
 {
@@ -36,17 +37,19 @@ class EventController extends AppController
         $action = $_POST["save"] ?? "event";
 
         $event = new Event($event_name, $event_date, $event_location, $event_type, $photo, $description);
-        $saved = EventDAO::create_event($event, $user_id);
+        $event_id = EventDAO::create_event($event, $user_id);
 
-        if (!$saved) {
+        if (!$event_id) {
             echo "Couldn't save";
         }
 
         $url = "http://" . $_SERVER['HTTP_HOST'];
 
         if ($action === 'event_and_room') {
-            header("Location: {$url}/room-dashboard");
-        } else {
+            $room_id = RoomDAO::createRoom($event_id,$user_id);
+            header("Location: {$url}/{$room_id}/room-dashboard}");
+        } 
+        else {
             header("Location: {$url}/user-events");
         }
         exit();

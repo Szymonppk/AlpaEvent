@@ -10,9 +10,9 @@ class RoomController extends AppController
     public function room($params)
     {
         $room_id = $params[0] ?? null;
-        $subpage = $params[1] ?? 'dashboard';
+        $subpage = $params[1] ?? 'room_dashboard';
         $user_id = $_SESSION['user']['user_id'];
-
+        
         if (!$room_id) {
             die("Missing room id!");
         }
@@ -23,8 +23,23 @@ class RoomController extends AppController
             die("No privilages");
         }
 
-        // switch ($subpage) {
-        // }
+        switch ($subpage) 
+        {
+            case 'room_dashboard': $this->render('room-dashboard');
+
+
+        }
+    }
+
+    public function get_first_room()
+    {
+        header("Content-Type: application/json");
+        $user_id = $_SESSION["user"]["user_id"];
+        $event_id = $_GET["event_id"] ?? null;
+
+        $room_id = RoomDAO::getFirstRoom($user_id,$event_id);
+
+        echo json_encode($room_id);
     }
 
     public function create_room()

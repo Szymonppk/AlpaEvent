@@ -45,4 +45,17 @@ class RoomDAO
     }
 
     public static function getRoomInfo() {}
+
+    public static function getFirstRoom($user_id,$event_id)
+    {
+        $db = (new Database())->getConnection();
+        $stmt = $db->prepare('SELECT ru.room_id FROM room_user ru join event_user eu on ru.user_id = eu.user_id WHERE eu.event_id = :event_id and ru.user_id = :user_id order by room_id desc limit 1');
+        $stmt->execute([
+            ':user_id' => $user_id,
+            ':event_id' => $event_id
+        ]);
+
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

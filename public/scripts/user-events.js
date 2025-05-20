@@ -55,29 +55,29 @@ window.addEventListener("DOMContentLoaded", async () => {
   const joinBtn = document.getElementById("joinRoomBtn");
 
   createBtn.addEventListener("click", async () => {
-    const eventId = menuOption.dataset.eventId;
+    const event_id = menuOption.dataset.eventId;
 
-    console.log("Ustawiono event ID:", eventId);
-    const res = await fetch(`/create-room?event_id=${eventId}`, {
+    console.log("Ustawiono event ID:", event_id);
+    const res = await fetch(`/create-room?event_id=${event_id}`, {
       method: 'POST'
     });
 
     if (res.ok) {
-      const { roomId } = await res.json();
-      window.location.href = `/room/${roomId}/room-dashboard`;
+      const { room_id } = await res.json();
+      window.location.href = `/room/${room_id}/room-dashboard`;
     } else {
       alert("Couldn't create room");
     }
   });
 
   joinBtn.addEventListener("click", async () => {
-    const eventId = menuOption.dataset.eventId;
-
+    const event_id = menuOption.dataset.eventId;
+    
    
-    const res = await fetch(`/get-first-room?event_id=${eventId}`);
+    const res = await fetch(`/get-first-room?event_id=${event_id}`);
     if (res.ok) {
-      const { roomId } = await res.json();
-      window.location.href = `/room/${roomId}/room-dashboard`;
+      const { room_id } = await res.json();
+      window.location.href = `/room/${room_id}/room-dashboard`;
     } else {
       alert("Couldn't find room");
     }

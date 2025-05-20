@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/styles/room-dashboard.css" rel="stylesheet">
+    <link href="/public/styles/room-dashboard.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
-    <script src="public/scripts/room.js"></script>
+    <script src="/public/scripts/room.js"></script>
     <title>Room Dashboard</title>
 
 </head>
