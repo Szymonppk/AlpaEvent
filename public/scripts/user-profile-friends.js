@@ -30,9 +30,11 @@ search_input.addEventListener('input',async(e) => {
         usernameSpan.textContent = user.username;
     
         const addButton = document.createElement('button');
-        addButton.textContent = '+';
+        const plus = document.createElement('i');
+        plus.classList.add('fa-solid', 'fa-user-plus');
+
         addButton.addEventListener('click', () => addFriend(user.user_id));
-    
+        addButton.appendChild(plus);
         friendItem.appendChild(usernameSpan);
         friendItem.appendChild(addButton);
     

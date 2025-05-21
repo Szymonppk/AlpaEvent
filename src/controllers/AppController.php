@@ -31,7 +31,7 @@ class AppController{
         $templatePath = "public/views/".$template.".php";
         $output = "File not found";
 
-        if(file_exists($templatePath))
+        if(file_exists($templatePath))  
         {
             extract($variables);
             ob_start();

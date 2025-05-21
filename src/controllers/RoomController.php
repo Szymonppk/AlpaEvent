@@ -25,8 +25,30 @@ class RoomController extends AppController
 
         switch ($subpage) 
         {
-            case 'room_dashboard': $this->render('room-dashboard');
-
+            case 'room_dashboard': 
+                $this->render('room-dashboard',[$room_id]);
+                break;
+            case 'room_chat': 
+                $this->render('room-chat',[$room_id]);
+                break;
+            case 'room_event_info': 
+                $this->render('room-event-info',[$room_id]);
+                break;
+            case 'room_event_plan': 
+                $this->render('room-event-plan',[$room_id]);
+                break;
+            case 'room_event_settlements': 
+                $this->render('room-event-settlements',[$room_id]);
+                break;
+            case 'room_gallery': 
+                $this->render('room-gallery',[$room_id]);
+                break;
+            case 'room_settings': 
+                $this->render('room-settings',[$room_id]);
+                break;
+            case 'room_team':
+                $this->render('room-team',[$room_id]);
+                break;
 
         }
     }

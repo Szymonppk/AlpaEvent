@@ -13,6 +13,6 @@ logout.addEventListener("click",()=>{
         }
     })
     .catch(err => {
-        console.error("Błąd wylogowania", err);
+        console.error("Error", err);
     });
 });

@@ -95,6 +95,10 @@
                 <button id="createRoomBtn">Create room</button>
                 <button id="joinRoomBtn">Go to room</button>
             </div>
+            <a href="/create-event">
+                <div class="event-box-create container-center-center-column">Click to create event/room</div>
+            </a>
+            
         </div>
     </main>
 

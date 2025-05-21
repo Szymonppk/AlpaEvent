@@ -51,7 +51,7 @@ class EventDAO
             return false;
         }
 
-        return true;
+        return $event_id;
     }
 
     public static function get_events($user_id)

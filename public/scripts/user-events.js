@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     if (!res.ok) {
         const text = await res.text();
-        console.error("Błąd odpowiedzi", text);
+        console.error("Error", text);
         return;
     }
     const events = await res.json();

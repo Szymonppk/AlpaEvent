@@ -47,46 +47,46 @@
             </div>
             <ul class="container-center-center-column room-options">
                 <li class="room-option container-center-center-row" id="option-selection">
-                    <a href="/room-dashboard">
+                    <a href="/room/<?php echo $variables[0];?>/room-dashboard">
                         <i class="fa-solid fa-house"></i><span class="option-text">Dashboard</span>
                     </a>
                 </li>
 
 
                 <li class="room-option container-center-center-row">
-                    <a href="/room-event-info">
+                    <a href="/room/<?php echo $variables[0];?>/room-event-info">
                         <i class="fa-solid fa-circle-info"></i><span class="option-text">Event Info</span>
                     </a>
                 </li>
 
                 <li class="room-option container-center-center-row">
-                    <a href="/room-event-settlements">
+                    <a href="/room/<?php echo $variables[0];?>/room-event-settlements">
                         <i class="fa-solid fa-wallet"></i><span class="option-text">Event settlements</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room-event-plan">
+                    <a href="/room/<?php echo $variables[0];?>/room-event-plan">
                         <i class="fa-solid fa-map"></i><span class="option-text">Event plan</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room-chat">
+                    <a href="/room/<?php echo $variables[0];?>/room-chat">
                         <i class="fa-solid fa-comment"></i><span class="option-text">Chat</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room-gallery">
+                    <a href="/room/<?php echo $variables[0];?>/room-gallery">
                         <i class="fa-solid fa-camera"></i><span class="option-text">Gallery</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room-team">
+                    <a href="/room/<?php echo $variables[0];?>/room-team">
                         <i class="fa-solid fa-people-group"></i><span class="option-text">Team</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
 
-                    <a href="/room-settings">
+                    <a href="/room/<?php echo $variables[0];?>/room-settings">
                         <i class="fa-solid fa-gear"></i><span class="option-text">Settings</span>
                     </a>
                 </li>
@@ -105,8 +105,8 @@
                         </a>
                         </li>
           
-                    <li class="room-option container-center-center-row">
-                        <a>
+                    <li class="room-option container-center-center-row logout">
+                        <a href="#" id="logout">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
                         </a>
                     </li>
