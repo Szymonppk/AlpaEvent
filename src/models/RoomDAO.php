@@ -1,13 +1,14 @@
 <?php
 
 require_once __DIR__ . '/../database/Database.php';
+require_once __DIR__.'/EventDAO.php';
 
 class RoomDAO
 {
     public static function findById($user_id,$room_id)
     {
         $db = (new Database())->getConnection();
-        $stmt = $db->prepare('SELECT * FROM room_user WHERE user_id = :user_id AND room_id = :room_id');
+        $stmt = $db->prepare('SELECT e.* FROM room_user ru join room r on r.room_id = ru.room_id join event e on e.event_id = r.event_id WHERE ru.user_id = :user_id AND ru.room_id = :room_id');
         $stmt->execute([
             ':user_id' => $user_id,
             ':room_id' => $room_id
@@ -49,7 +50,7 @@ class RoomDAO
     public static function getFirstRoom($user_id,$event_id)
     {
         $db = (new Database())->getConnection();
-        $stmt = $db->prepare('SELECT ru.room_id FROM room_user ru join event_user eu on ru.user_id = eu.user_id WHERE eu.event_id = :event_id and ru.user_id = :user_id order by room_id desc limit 1');
+        $stmt = $db->prepare('SELECT ru.room_id FROM room_user ru join room r on ru.room_id=r.room_id join event_user eu on ru.user_id = eu.user_id WHERE r.event_id = :event_id and ru.user_id = :user_id order by ru.room_id desc limit 1');
         $stmt->execute([
             ':user_id' => $user_id,
             ':event_id' => $event_id
@@ -58,4 +59,6 @@ class RoomDAO
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    
 }

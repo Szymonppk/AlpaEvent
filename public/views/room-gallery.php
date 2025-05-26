@@ -16,14 +16,14 @@
         <div class="container-space-between-row" id="options-mobile">
             <div id="room-info-mobile">
                 <div id="user-room-photo-mobile" class="container-center-center-row">
-                    user room photo
+                   
                 </div>
                 <div class="room-info-container container-center-center-column">
                 <p class="room-info-mobile">Room name</p>
                 <p class="room-info-mobile">(Gallery)</p>
                 </div>    
             </div>
-            <a href="/home">
+            <a href="/home-logged">
             <img src="/images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
                 class="AlpaEvent-logo-mobile">
             </a>    
@@ -36,13 +36,13 @@
         <aside id="aside" class="container-space-between-column">
             <div class="container-center-center-column" id="room-item-info">
                 <div id="user-room-photo" class="container-center-center-row">
-                    user room photo
+                    
                 </div>
 
-                <p class="room-info">Room name</p>
-                <p class="room-info">Room localisation</p>
-                <p class="room-info">Room date</p>
-                <p class="room-info">Type</p>
+                <p class="room-info room-name"></p>
+                <p class="room-info room-localisation"></p>
+                <p class="room-info room-date"></p>
+                <p class="room-info room-type"></p>
 
             </div>
             <ul class="container-center-center-column room-options">
@@ -92,7 +92,7 @@
                 </li>
             </ul>
             <div class="container-center-center-column logo-options">
-                <a href="/home">
+                <a href="/home-logged">
                     <img src="../../images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
                         class="AlpaEvent-logo">
                 </a>

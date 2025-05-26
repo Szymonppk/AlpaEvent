@@ -22,6 +22,7 @@ class RoomController extends AppController
         if (!$access) {
             die("No privilages");
         }
+        $room_data = $this->get_room_by_id_data($room_id);
 
         switch ($subpage) 
         {
@@ -31,8 +32,8 @@ class RoomController extends AppController
             case 'room_chat': 
                 $this->render('room-chat',[$room_id]);
                 break;
-            case 'room_event_info': 
-                $this->render('room-event-info',[$room_id]);
+            case 'room_event_info':
+                $this->render('room-event-info',["room_id" =>$room_id,"room_data"=>$room_data]);
                 break;
             case 'room_event_plan': 
                 $this->render('room-event-plan',[$room_id]);
@@ -64,6 +65,28 @@ class RoomController extends AppController
         echo json_encode($room_id);
     }
 
+    public function get_room_by_id()
+    {
+        header("Content-Type: application/json");
+        $user_id = $_SESSION["user"]["user_id"];
+        $room_id = $_GET["room_id"] ?? null;
+
+        $rooms = RoomDAO::findByID($user_id,$room_id);
+
+        echo json_encode($rooms);
+    }
+
+    public function get_room_by_id_data($room_id)
+    {
+        
+        $user_id = $_SESSION["user"]["user_id"];
+        
+
+        return RoomDAO::findByID($user_id,$room_id);
+
+        
+    }
+
     public function create_room()
     {
         header('Content-Type: application/json');
@@ -88,4 +111,6 @@ class RoomController extends AppController
 
         echo json_encode(['room_id' => $room_id]);
     }
+
+    
 }

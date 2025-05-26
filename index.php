@@ -30,6 +30,8 @@ Router::post('logout','SecurityController');
 Router::post('create-room', 'RoomController');
 Router::get('room','RoomController');
 Router::get('get-first-room','RoomController');
+Router::get("get-rooms","RoomController");
+Router::get("get-room-by-id","RoomController");
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');
 // Router::get('home','DefaultController');

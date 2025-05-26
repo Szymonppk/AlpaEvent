@@ -12,7 +12,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/rooms-events.js" defer></script>
-
+    <script src="public/scripts/user-rooms.js" defer></script>
     <title>User Rooms</title>
 </head>
 
@@ -90,24 +90,11 @@
         <p class="main-text">Rooms</p>
 
         <div class="main-content container-center-center-row-wrap">
-            <div class="room-box">
-
-            </div>
-            <div class="room-box">
-
-            </div>
-            <div class="room-box">
-
-            </div>
-            <div class="room-box">
-
-            </div>
-            <div class="room-box">
-
-            </div>
-            <div class="room-box">
-
-            </div>
+        <div id="optionsMenu" class="options-menu">
+            <button id="createRoomBtn">Create room</button>
+            <button id="joinRoomBtn">Go to room</button>
+        </div>  
+            
         </div>
     </main>
 
