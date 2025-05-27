@@ -18,14 +18,14 @@
                 <div id="user-room-photo-mobile" class="container-center-center-row">
                 </div>
                 <div class="room-info-container container-center-center-column">
-                <p class="room-info-mobile">Room name</p>
-                <p class="room-info-mobile">(Event Info)</p>
-                </div>    
+                    <p class="room-info-mobile">Room name</p>
+                    <p class="room-info-mobile">(Event Info)</p>
+                </div>
             </div>
             <a href="/home-logged">
-            <img src="/images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
-                class="AlpaEvent-logo-mobile">
-            </a>    
+                <img src="/images/logo_alpa_event_black_circle_big.svg" alt="AlpaEvent logo"
+                    class="AlpaEvent-logo-mobile">
+            </a>
             <ul class="mobile-icons">
                 <li id="hamburger-menu">
                     <i class="fa-solid fa-bars"></i>
@@ -45,46 +45,46 @@
             </div>
             <ul class="container-center-center-column room-options">
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-dashboard">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-dashboard">
                         <i class="fa-solid fa-house"></i><span class="option-text">Dashboard</span>
                     </a>
                 </li>
 
 
                 <li class="room-option container-center-center-row" id="option-selection">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-event-info">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-event-info">
                         <i class="fa-solid fa-circle-info"></i><span class="option-text">Event Info</span>
                     </a>
                 </li>
 
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-event-settlements">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-event-settlements">
                         <i class="fa-solid fa-wallet"></i><span class="option-text">Event settlements</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-event-plan">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-event-plan">
                         <i class="fa-solid fa-map"></i><span class="option-text">Event plan</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-chat">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-chat">
                         <i class="fa-solid fa-comment"></i><span class="option-text">Chat</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-gallery">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-gallery">
                         <i class="fa-solid fa-camera"></i><span class="option-text">Gallery</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-team">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-team">
                         <i class="fa-solid fa-people-group"></i><span class="option-text">Team</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
 
-                    <a href="/room/<?php echo htmlspecialchars($room_id);?>/room-settings">
+                    <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-settings">
                         <i class="fa-solid fa-gear"></i><span class="option-text">Settings</span>
                     </a>
                 </li>
@@ -96,14 +96,14 @@
                 </a>
                 <ul class="container-center-center-column room-options">
                     <li class="room-option container-center-center-row">
-                    <a>    
-                    <i class="fa-solid fa-question"></i><span
-                            class="option-text">Help</span>
-                    </a>    
+                        <a>
+                            <i class="fa-solid fa-question"></i><span
+                                class="option-text">Help</span>
+                        </a>
                     </li>
                     <li class="room-option container-center-center-row">
                         <a href="#" id="logout">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
                         </a>
                     </li>
                 </ul>
@@ -116,10 +116,20 @@
 
         </div>
 
-        <div id="event-info" class= "container-center-column">
-            <p>Details:</p>
-            <p>Name:</p> 
-            <p><?php echo $room_data["event_name"]?></p>  
+        <div id="event-info" class="container-center-column">
+            <div class="container-space-around-row info">
+                <img src="../../<?php echo $room_data["photo"] ?>" alt="Event photo" class="photo-info">
+                <div class="container-center-column important-info">
+                    <p class="info-header"><?php echo $room_data["event_name"] ?></p>
+                    <p class="info-data"><?php echo $room_data["event_location"] ?></p>
+                    <p class="info-data"><?php echo $room_data["event_date"] ?></p>
+                    <p class="info-data">(<?php echo $room_data["event_type"] ?>)</p>
+                </div>
+            </div>
+            <div class="container-center-column description-info">
+                <p class="info-header">Description:</p>
+                <p class="info-data"> <?php echo $room_data["description"] ?></p>
+            </div>
         </div>
 
     </main>

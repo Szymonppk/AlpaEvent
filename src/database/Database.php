@@ -2,6 +2,7 @@
 
 class Database
 {
+    //dotenv zmienne srodowiskowe
     private $host = 'db';
     private $port = '5432';
     private $dbname = 'AlpaDataBase';
@@ -11,6 +12,7 @@ class Database
 
     public function __construct()
     {
+        
         try 
         {
             $this->connection = new PDO(
@@ -20,6 +22,7 @@ class Database
             );
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
+            // Not die function site with 404
             die("DB connection failed: " . $e->getMessage());
         }
 
@@ -31,5 +34,8 @@ class Database
         return $this->connection;
     }
 
-
+    public function disconnect()
+    {
+        //
+    }
 }

@@ -4,19 +4,18 @@ require_once "AppController.php";
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/UserDAO.php';
 require_once __DIR__.'/../database/Database.php';
+require_once __DIR__.'/../models/FriendshipDAO.php';
 
 class FriendController extends AppController {
 
 public function search_user() {
+    
     $data = json_decode(file_get_contents('php://input'), true);
     $query = '%' . $data['query'] . '%';
 
-    $db = (new Database())->getConnection();
-    $stmt = $db->prepare("SELECT user_id, username FROM alpa_user WHERE username ILIKE :query LIMIT 10");
-    $stmt->bindParam(':query', $query);
-    $stmt->execute();
+    $search_result = FriendshipDAO::search_user($query);
 
-    echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+    echo json_encode($search_result);
 }
 
 public function add_friend() {
@@ -26,24 +25,26 @@ public function add_friend() {
     $data = json_decode(file_get_contents('php://input'), true);
     $friendId = $data['friendId'];
 
-    $db = (new Database())->getConnection();
-
-    $stmt = $db->prepare("INSERT INTO friendship (user_id, friend_id) VALUES (:userId, :friendId)");
-    $stmt->bindParam(':userId', $userId);
-    $stmt->bindParam(':friendId', $friendId);
-
-    $stmt->execute();
-    http_response_code(200);
+    FriendshipDAO::add_friend($userId,$friendId);
 }
 
 public function get_friends()
 {
-    if (session_status() === PHP_SESSION_NONE) {
+    
+   if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
 
     $userId = $_SESSION['user']['user_id'];
 
+    $friends = FriendshipDAO::get_friends($userId);
+
+    echo json_encode($friends);
+}
+
+public function get_friends_data($userId)
+{
+   
     $db = (new Database())->getConnection();
 
     $stmt = $db->prepare("
@@ -56,7 +57,7 @@ public function get_friends()
     $stmt->bindParam(':userId', $userId);
     $stmt->execute();
 
-    echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
