@@ -35,7 +35,7 @@ Router::get("get-room-by-id","RoomController");
 Router::get("home-logged","HomeController");
 Router::get("get-participants","RoomController");
 Router::post("add-user","RoomController");
-
+Router::post("upload-photo","RoomController");
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');
 // Router::get('home','DefaultController');

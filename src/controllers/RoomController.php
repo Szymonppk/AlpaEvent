@@ -4,9 +4,12 @@ require_once "AppController.php";
 require_once __DIR__ . "/../models/Room.php";
 require_once __DIR__ . "/../models/RoomDAO.php";
 require_once __DIR__ . "/../models/EventDAO.php";
+require_once __DIR__ . "/../models/GalleryDAO.php";
 
 class RoomController extends AppController
 {
+    private $uploadDir = 'uploads/';
+
     public function room($params)
     {
         $room_id = $params[0] ?? null;
@@ -98,6 +101,7 @@ class RoomController extends AppController
         $reference_event = EventDAO::get_event_by_id($event_id);
 
         $room_id = RoomDAO::createRoom($event_id, $user_id);
+        GalleryDAO::create_gallery($room_id);
 
         if (!$room_id) {
             http_response_code(500);
@@ -143,6 +147,34 @@ class RoomController extends AppController
         $participants = RoomDAO::get_participants($roomId);
 
         echo json_encode($participants);
-        
+    }
+
+    public function upload_photo()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photo'])) {
+            $file = $_FILES['photo'];
+
+            if ($file['error'] !== UPLOAD_ERR_OK) {
+                echo json_encode(['status' => 'error', 'message' => 'File upload failed']);
+                exit;
+            }
+
+            $fileName = basename($file['name']);
+            $targetPath = $this->uploadDir . $fileName;
+
+            if (!getimagesize($file['tmp_name'])) {
+                echo json_encode(['status' => 'error', 'message' => 'Uploaded file is not an image']);
+                exit;
+            }
+
+            if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+
+                GalleryDAO::save_photo($targetPath);
+
+                echo json_encode(['status' => 'success', 'photoPath' => '/' . $targetPath]);
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Failed to save image']);
+            }
+        }
     }
 }

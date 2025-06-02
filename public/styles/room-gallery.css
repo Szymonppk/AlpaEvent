@@ -202,7 +202,7 @@ main{
     border-radius: 2em;
 }
 
-#chat-room
+#gallery-room
 {
     height: 90vh;
     background-color: #D9D9D9;
@@ -210,8 +210,13 @@ main{
     border-radius: 2em;
     margin-right: 2%;
     margin-left: 2%;
+    overflow-y: auto;
 }
 
+#photo-upload
+{
+    display: none;
+}
 #room-item-info
 {
     height: 30em;
@@ -299,9 +304,10 @@ main{
         display: none;
     }
 
-    #chat-room
+    #gallery-room
     {
         width: 75%;
+        overflow-y: auto;
     }
 
 }
@@ -325,6 +331,55 @@ main{
 {
     display: none;
 }
+
+#photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 1em;
+}
+
+.photo-block {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 150px; /* Stała szerokość */
+    height: 150px; /* Stała wysokość */
+    display: block; /* Upewniamy się, że blok jest typu block i nie ukrywa się */
+    
+}
+
+.full-screen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.full-screen-image {
+    max-width: 90%;
+    max-height: 90%;
+    margin: 0 auto;
+}
+
+button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 
 
 @media (max-width:850px)
@@ -360,12 +415,12 @@ main{
         
     }
 
-    #chat-room
+    #gallery-room
     {
         margin: 0;
         height: 80%;
         width: 90%;
-        
+        overflow-y: auto;
         
     }
 
