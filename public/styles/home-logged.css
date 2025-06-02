@@ -387,11 +387,15 @@ a {
 
 }
 
+
 .recent-event-block {
     width: 20em;
     height: 30em;
     border-radius: 2em;
     box-shadow: var(--default-out-shadow);
+    background-position:center center;
+    background-size:cover;
+    margin:1em;
 }
 
 #rev-block {

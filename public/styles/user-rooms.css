@@ -313,6 +313,12 @@ main
 
 }
 
+.event-box:hover
+{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .options-menu button {
     background-color: #22231B;
     color: #A29D9D;

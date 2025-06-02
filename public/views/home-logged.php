@@ -133,11 +133,14 @@
 
             <p id="re-tekst">Your recent events</p>
             <hr>
+            
             <div class="container-space-around-row" id="rev-block">
-                <div class="recent-event-block"></div>
-                <div class="recent-event-block"></div>
-                <div class="recent-event-block"></div>
-                <div class="recent-event-block"></div>
+                <?php foreach ($variables as $event):?>
+                <div class="container-center-center-column">
+                <p class="box-tekst"><?= $event["event_name"]?></p>
+                <div class="recent-event-block" style="background-image: url('<?=$event["photo"]?>');"></div>
+                </div>
+                <?php endforeach;?>
             </div>
 
         </section>

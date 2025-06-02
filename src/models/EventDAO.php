@@ -86,6 +86,57 @@ class EventDAO
         }
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
-
     }
+
+    public static function add_user($user_id, $room_id)
+    {
+        $db = (new Database())->getConnection();
+
+        $stmt_1 = $db->prepare("SELECT event_id from room where room_id = :room_id");
+
+        $success_1 = $stmt_1->execute([
+            ":room_id" => $room_id
+        ]);
+
+        if (!$success_1) {
+            error_log("DAO: Błąd wykonania zapytania: " . implode(" | ", $stmt_1->errorInfo()));
+            return false;
+        }
+
+        $event_id = $stmt_1->fetch(PDO::FETCH_NUM)[0];
+
+        $stmt_2 = $db->prepare('INSERT into event_user (event_id,user_id) values (:event_id, :user_id)');
+
+        $success_2 = $stmt_2->execute([
+            ':event_id' => $event_id,
+            ':user_id' => $user_id
+
+        ]);
+
+        if (!$success_2) {
+            error_log("DAO: Błąd wykonania zapytania: " . implode(" | ", $stmt_2->errorInfo()));
+            return false;
+        }
+    }
+
+    public static function check_participant($user_id, $event_id)
+    {
+        $db = (new Database())->getConnection();
+        $stmt_check = $db->prepare('SELECT 1 FROM event_user WHERE user_id = :user_id AND event_id = :event_id LIMIT 1');
+        $stmt_check->execute([':user_id' => $user_id, ':event_id' => $event_id]);
+        $exists = $stmt_check->fetchColumn();
+        if ($exists) {
+            
+            error_log("User $user_id is already in event $event_id.");
+            return true;  
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+
+
+
 }

@@ -353,7 +353,7 @@ main
 #event-description
 {
     border: 1px solid gray;
-    width: 60%;
+    width: 40%;
     margin:2%;
     height: 15em;
     overflow-y: auto;
@@ -403,6 +403,16 @@ main
     transform: scale(1.1);
 }
 
+@media (min-width:1150px)
+{
+    .input,#event_location,.photo-selector,.button-submit, .button-submit-2
+    {
+        width:40%;
+    }
+
+   
+}
+
 @media (max-width:1000px)
 {
 
@@ -424,6 +434,7 @@ main
         height: 14em;
         
     }
+
 
     
     .show-element{

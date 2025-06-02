@@ -1,4 +1,6 @@
 const search_input = document.querySelector('.input');
+const roomIdAtr = document.querySelector(".room-option").getAttribute("data-room-id");
+const roomId = parseInt(roomIdAtr);
 
 search_input.addEventListener('input',async(e) => {
 
@@ -46,7 +48,11 @@ search_input.addEventListener('input',async(e) => {
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
-    const res = await fetch('/get-friends');
+        const res = await fetch(`/get-participants?roomId=${roomId}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    });
+
     const friends = await res.json();
 
     const staticContainer = document.querySelector('.static-friend');
@@ -65,10 +71,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function addFriend(friendId) {
-    const res = await fetch('/add-friend', {
+
+    console.log({ friendId, roomId });
+
+    const res = await fetch('/add-user', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({friendId})
+        body: JSON.stringify({friendId:friendId,roomId:roomId})
     });
 
     if (res.ok) {

@@ -47,7 +47,7 @@
 
             </div>
             <ul class="container-center-center-column room-options">
-                <li class="room-option container-center-center-row">
+                <li class="room-option container-center-center-row" data-room-id="<?php echo $variables[0];?>">
                     <a href="/room/<?php echo $variables[0]; ?>/room-dashboard">
                         <i class="fa-solid fa-house"></i><span class="option-text">Dashboard</span>
                     </a>

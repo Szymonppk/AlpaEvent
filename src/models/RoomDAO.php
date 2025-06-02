@@ -60,5 +60,45 @@ class RoomDAO
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function add_user($user_id,$room_id)
+    {
+        error_log("RoomDAO");
+        $db = (new Database())->getConnection();
+       
+        $stmt = $db->prepare('INSERT into room_user (room_id,user_id) values (:room_id,:user_id)');
+
+        $success = $stmt->execute([
+            ':room_id'=> $room_id,
+            ':user_id' => $user_id
+            
+        ]);
+
+        if (!$success) {
+            error_log("DAO: Błąd wykonania zapytania: " . implode(" | ", $stmt->errorInfo()));
+            return false;
+        }
+
+    }
+
+    public static function get_participants($room_id)
+    {
+        $db = (new Database())->getConnection();
+       
+        $stmt = $db->prepare('SELECT * from alpa_user u join room_user ru on ru.user_id = u.user_id where room_id = :room_id');
+
+        $success = $stmt->execute([
+            ':room_id'=> $room_id,
+            
+        ]);
+
+        if (!$success) {
+            error_log("DAO: Error: " . implode(" | ", $stmt->errorInfo()));
+            return false;
+        }
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
     
 }
