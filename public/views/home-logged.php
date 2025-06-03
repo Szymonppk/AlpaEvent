@@ -138,7 +138,7 @@
                 <?php foreach ($variables as $event):?>
                 <div class="container-center-center-column">
                 <p class="box-tekst"><?= $event["event_name"]?></p>
-                <div class="recent-event-block" style="background-image: url('<?=$event["photo"]?>');"></div>
+                <div class="recent-event-block" style="background-image: url('<?="/".$event["photo"]?>');"></div>
                 </div>
                 <?php endforeach;?>
             </div>

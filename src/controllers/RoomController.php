@@ -44,7 +44,8 @@ class RoomController extends AppController
                 $this->render('room-event-settlements', [$room_id]);
                 break;
             case 'room_gallery':
-                $this->render('room-gallery', [$room_id]);
+                $photo_paths = $this->get_photos($room_id);
+                $this->render('room-gallery', ["room_id"=>$room_id,"photo_paths"=>$photo_paths]);
                 break;
             case 'room_settings':
                 $this->render('room-settings', [$room_id]);
@@ -84,6 +85,11 @@ class RoomController extends AppController
 
 
         return RoomDAO::findByID($user_id, $room_id);
+    }
+
+    public function get_photos($room_id)
+    {
+        return RoomDAO::get_photos($room_id);
     }
 
     public function create_room()

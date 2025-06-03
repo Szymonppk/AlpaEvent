@@ -341,13 +341,16 @@ main{
 
 .photo-block {
     border: 1px solid #ccc;
+    border-radius: 1em;
+    box-shadow: rgb(204 219 232 / 31%) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     padding: 5px;
     text-align: center;
     cursor: pointer;
     width: 150px; /* Stała szerokość */
     height: 150px; /* Stała wysokość */
     display: block; /* Upewniamy się, że blok jest typu block i nie ukrywa się */
-    
+    background-position: center center;
+    background-size: cover;
 }
 
 .full-screen-container {

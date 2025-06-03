@@ -1,61 +1,88 @@
-document.getElementById('add-photo-button').addEventListener('click', () => {
-    document.getElementById('photo-upload').click(); 
+const search_input = document.querySelector('.input');
+const roomIdAtr = document.querySelector(".room-option").getAttribute("data-room-id");
+const roomId = parseInt(roomIdAtr);
+
+search_input.addEventListener('input',async(e) => {
+
+    const query = e.target.value;
+
+    if(query.length <2) return;
+
+    const res = await fetch('/search-user',{
+
+        method:'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({query})
+
+    });
+
+    const users = await res.json();
+
+    const searchContainer = document.querySelector('.search-result');
+    searchContainer.innerHTML ='';
+
+    const friendBox = document.createElement('div');
+    friendBox.classList.add('friend-box');
+
+    users.forEach(user => {
+        const friendItem = document.createElement('div');
+        friendItem.classList.add('friend-item');
+    
+        const usernameSpan = document.createElement('span');
+        usernameSpan.textContent = user.username;
+    
+        const addButton = document.createElement('button');
+        const plus = document.createElement('i');
+        plus.classList.add('fa-solid', 'fa-user-plus');
+
+        addButton.addEventListener('click', () => addFriend(user.user_id));
+        addButton.appendChild(plus);
+        friendItem.appendChild(usernameSpan);
+        friendItem.appendChild(addButton);
+    
+        friendBox.appendChild(friendItem);
+    });
+    
+
+    searchContainer.appendChild(friendBox);
 });
 
-document.getElementById('photo-upload').addEventListener('change', async (e) => {
-    const file = e.target.files[0];
-    
-    if (file) {
-        
-        const formData = new FormData();
-        formData.append('photo', file);
-        formData.append('roomId', roomId); 
-        
-        const res = await fetch('/upload-photo', {
-            method: 'POST',
-            body: formData
-        });
+window.addEventListener('DOMContentLoaded', async () => {
+        const res = await fetch(`/get-participants?roomId=${roomId}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    });
 
-        const result = await res.json();
+    const friends = await res.json();
 
-        if (res.ok && result.status === 'success') {
-            addPhotoToGallery(result.photoPath); 
-        } else {
-            alert('Error uploading photo');
-        }
+    const staticContainer = document.querySelector('.static-friend');
+
+    friends.forEach(friend => {
+        const friendBox = document.createElement('div');
+        friendBox.classList.add('friend-box');
+
+        const friendItem = document.createElement('div');
+        friendItem.classList.add('friend-item');
+        friendItem.textContent = friend.username;
+
+        friendBox.appendChild(friendItem);
+        staticContainer.appendChild(friendBox);
+    });
+});
+
+async function addFriend(friendId) {
+
+    console.log({ friendId, roomId });
+
+    const res = await fetch('/add-user', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({friendId:friendId,roomId:roomId})
+    });
+
+    if (res.ok) {
+        alert("Friend added!"); 
+    } else {
+        alert("Error adding friend.");
     }
-});
-
-function addPhotoToGallery(photoPath) {
-    const photoGallery = document.getElementById('photo-gallery');
-    
-    const photoBlock = document.createElement('div');
-    photoBlock.classList.add('photo-block');
-    
-    photoBlock.style.backgroundImage = `url(${photoPath})`;
-    
-    photoBlock.addEventListener('click', () => {
-        showFullScreenImage(photoPath);
-    });
-
-    photoGallery.appendChild(photoBlock);
-}
-
-function showFullScreenImage(photoPath) {
-    const fullScreenContainer = document.createElement('div');
-    fullScreenContainer.classList.add('full-screen-container');
-    
-    const img = document.createElement('img');
-    img.src = photoPath;
-    img.classList.add('full-screen-image');
-    
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.addEventListener('click', () => {
-        document.body.removeChild(fullScreenContainer);
-    });
-
-    fullScreenContainer.appendChild(img);
-    fullScreenContainer.appendChild(closeButton);
-    document.body.appendChild(fullScreenContainer);
 }

@@ -2,13 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     const parts = path.split("/");
     const roomId = parts[2];
+    const photoBlocks = document.querySelectorAll(".photo-block");
 
-    // Nasłuchiwanie na przycisk dodawania zdjęcia
+    photoBlocks.forEach(photoBlock => {
+        
+            photoBlock.addEventListener('click', () => {
+            const imgUrl = photoBlock.style.backgroundImage.replace('url("', '').replace('")', '');
+            showFullScreenImage(imgUrl);
+            
+        });
+
+    });
+
     document.getElementById('add-photo-button').addEventListener('click', () => {
         document.getElementById('photo-upload').click();
     });
 
-    // Nasłuchiwanie na zmianę pliku
     document.getElementById('photo-upload').addEventListener('change', async (e) => {
         const file = e.target.files[0];
 
@@ -33,24 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Funkcja dodająca zdjęcie do galerii
     function addPhotoToGallery(photoPath) {
         const photoGallery = document.getElementById('photo-gallery');
 
         const photoBlock = document.createElement('div');
         photoBlock.classList.add('photo-block');
 
-        // Dodajemy domyślne tło (np. szare), dopóki zdjęcie się nie załaduje
+
+        photoBlock.style.backgroundImage = `url("${photoPath}")`; 
         
-
-        // Czekamy, aż zdjęcie będzie w pełni załadowane, zanim ustawimy je jako tło
-        console.log(photoPath);
-
-        photoBlock.style.backgroundImage = `url("${photoPath}")`; // Ustawiamy tło po załadowaniu zdjęcia
-        photoBlock.style.backgroundSize = "cover";
-        photoBlock.style.backgroundPosition = "center center";
-
-        // Dodajemy event, który po kliknięciu wyświetli zdjęcie na pełnym ekranie
         photoBlock.addEventListener('click', () => {
             showFullScreenImage(photoPath);
         });
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         photoGallery.appendChild(photoBlock);
     }
 
-    // Funkcja do pełnoekranowego widoku zdjęcia
+    
     function showFullScreenImage(photoPath) {
         const fullScreenContainer = document.createElement('div');
         fullScreenContainer.classList.add('full-screen-container');
@@ -77,4 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fullScreenContainer.appendChild(closeButton);
         document.body.appendChild(fullScreenContainer);
     }
+
+
 });

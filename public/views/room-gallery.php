@@ -48,46 +48,46 @@
             </div>
             <ul class="container-center-center-column room-options">
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-dashboard">
+                    <a href="/room/<?php echo $room_id; ?>/room-dashboard">
                         <i class="fa-solid fa-house"></i><span class="option-text">Dashboard</span>
                     </a>
                 </li>
 
 
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-event-info">
+                    <a href="/room/<?php echo $room_id; ?>/room-event-info">
                         <i class="fa-solid fa-circle-info"></i><span class="option-text">Event Info</span>
                     </a>
                 </li>
 
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-event-settlements">
+                    <a href="/room/<?php echo $room_id; ?>/room-event-settlements">
                         <i class="fa-solid fa-wallet"></i><span class="option-text">Event settlements</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-event-plan">
+                    <a href="/room/<?php echo $room_id; ?>/room-event-plan">
                         <i class="fa-solid fa-map"></i><span class="option-text">Event plan</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-chat">
+                    <a href="/room/<?php echo $room_id; ?>/room-chat">
                         <i class="fa-solid fa-comment"></i><span class="option-text">Chat</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row" id="option-selection">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-gallery">
+                    <a href="/room/<?php echo $room_id; ?>/room-gallery">
                         <i class="fa-solid fa-camera"></i><span class="option-text">Gallery</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
-                    <a href="/room/<?php echo $variables[0]; ?>/room-team">
+                    <a href="/room/<?php echo $room_id; ?>/room-team">
                         <i class="fa-solid fa-people-group"></i><span class="option-text">Team</span>
                     </a>
                 </li>
                 <li class="room-option container-center-center-row">
 
-                    <a href="/room/<?php echo $variables[0]; ?>/room-settings">
+                    <a href="/room/<?php echo $room_id; ?>/room-settings">
                         <i class="fa-solid fa-gear"></i><span class="option-text">Settings</span>
                     </a>
                 </li>
@@ -116,14 +116,18 @@
 
 
         <div id="quick-notes">
-
+        
         </div>
 
 
         <div id="gallery-room">
             <button id="add-photo-button">Add Photo</button>
             <input type="file" id="photo-upload" accept="image/*">
-            <div id="photo-gallery"></div>
+            <div id="photo-gallery">
+                <?php foreach ($photo_paths as $photo_path):?>
+                <div class ="photo-block" style = "background-image: url('<?="/".$photo_path["target_path"]?>');"></div>
+                <?php endforeach;?>
+            </div>
         </div>
 
 

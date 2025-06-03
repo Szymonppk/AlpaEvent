@@ -100,5 +100,38 @@ class RoomDAO
 
     }
 
+    public static function get_photos($room_id)
+    {
+        $db = (new Database())->getConnection();
+        $stmt_1 = $db->prepare('SELECT gallery_id from gallery where room_id=:room_id');
+
+        $success = $stmt_1->execute([
+            ":room_id" => $room_id
+        ]);
+
+        if(!$success)
+        {
+            error_log("DAO: Error: " . implode(" | ", $stmt_1->errorInfo()));
+            return false;
+        }
+
+        $gallery_id = $stmt_1->fetchColumn();
+
+        $stmt_2 = $db->prepare("SELECT target_path from photo where gallery_id = :gallery_id");
+
+        $success_2 = $stmt_2->execute([
+            ":gallery_id"=>$gallery_id
+        ]);
+
+        if(!$success_2)
+        {
+            error_log("DAO: Error: " . implode(" | ", $stmt_2->errorInfo()));
+            return false;
+        }
+
+        return $stmt_2->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
     
 }
