@@ -183,4 +183,19 @@ class RoomController extends AppController
             }
         }
     }
+
+    public function add_plan_point()
+    {
+        RoomDAO::addPlanPoint();
+    }
+
+    public function delete_plan_point()
+    {
+        RoomDAO::deletePlanPoint();
+    }
+
+    public function get_plans()
+    {
+        RoomDAO::getPlans();
+    }
 }

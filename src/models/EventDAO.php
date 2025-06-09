@@ -126,17 +126,11 @@ class EventDAO
         $stmt_check->execute([':user_id' => $user_id, ':event_id' => $event_id]);
         $exists = $stmt_check->fetchColumn();
         if ($exists) {
-            
+
             error_log("User $user_id is already in event $event_id.");
-            return true;  
-        }
-        else
-        {
+            return true;
+        } else {
             return false;
         }
     }
-    
-
-
-
 }
