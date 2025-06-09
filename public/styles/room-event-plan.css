@@ -329,12 +329,11 @@ main{
 }
 
 #plan-room {
-    margin-top: 2em;
+   
     padding: 1em;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    width: 60%;
-    margin: 0 auto;
+    background-color: #D9D9D9;
+    border-radius: 2em;
+    width: 50%;
     overflow-y: auto;
 }
 

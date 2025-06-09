@@ -29,7 +29,7 @@ class RoomController extends AppController
 
         switch ($subpage) {
             case 'room_dashboard':
-                $this->render('room-dashboard', [$room_id]);
+                $this->render('room-dashboard',["room_id" => $room_id, "room_data" => $room_data]);
                 break;
             case 'room_chat':
                 $this->render('room-chat', [$room_id]);

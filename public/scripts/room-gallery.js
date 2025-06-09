@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const parts = path.split("/");
     const roomId = parts[2];
     const photoBlocks = document.querySelectorAll(".photo-block");
-
+   
     photoBlocks.forEach(photoBlock => {
         
             photoBlock.addEventListener('click', () => {
