@@ -71,6 +71,11 @@ ul {
     
 }
 
+#delete-form
+{
+    width: 100%;
+}
+
 .profile-option a {
     display: flex; 
     width: 100%;

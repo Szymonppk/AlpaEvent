@@ -7,6 +7,7 @@
     <link href="/public/styles/room-event-info.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="/public/scripts/room.js"></script>
+    <script src="/public/scripts/sticky-notes.js"></script>
     <title>Room Event Info</title>
 
 </head>
@@ -51,27 +52,27 @@
                 </li>
 
 
-                <li class="room-option container-center-center-row" id="option-selection">
+                <!-- <li class="room-option container-center-center-row" id="option-selection">
                     <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-event-info">
                         <i class="fa-solid fa-circle-info"></i><span class="option-text">Event Info</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li class="room-option container-center-center-row">
+                <!-- <li class="room-option container-center-center-row">
                     <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-event-settlements">
                         <i class="fa-solid fa-wallet"></i><span class="option-text">Event settlements</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="room-option container-center-center-row">
                     <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-event-plan">
                         <i class="fa-solid fa-map"></i><span class="option-text">Event plan</span>
                     </a>
                 </li>
-                <li class="room-option container-center-center-row">
+                <!-- <li class="room-option container-center-center-row">
                     <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-chat">
                         <i class="fa-solid fa-comment"></i><span class="option-text">Chat</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="room-option container-center-center-row">
                     <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-gallery">
                         <i class="fa-solid fa-camera"></i><span class="option-text">Gallery</span>
@@ -82,12 +83,12 @@
                         <i class="fa-solid fa-people-group"></i><span class="option-text">Team</span>
                     </a>
                 </li>
-                <li class="room-option container-center-center-row">
+                <!-- <li class="room-option container-center-center-row">
 
                     <a href="/room/<?php echo htmlspecialchars($room_id); ?>/room-settings">
                         <i class="fa-solid fa-gear"></i><span class="option-text">Settings</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <div class="container-center-center-column logo-options">
                 <a href="/home-logged">
@@ -95,12 +96,12 @@
                         class="AlpaEvent-logo">
                 </a>
                 <ul class="container-center-center-column room-options">
-                    <li class="room-option container-center-center-row">
+                    <!-- <li class="room-option container-center-center-row">
                         <a>
                             <i class="fa-solid fa-question"></i><span
                                 class="option-text">Help</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="room-option container-center-center-row">
                         <a href="#" id="logout">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
@@ -113,7 +114,8 @@
 
 
         <div id="quick-notes">
-
+            <button id="add-note">+</button>
+            <div id="notes-container"></div>
         </div>
 
         <div id="event-info" class="container-center-column">

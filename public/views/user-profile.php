@@ -12,7 +12,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a849d8267.js" crossorigin="anonymous"></script>
     <script src="public/scripts/rooms-events.js" defer></script>
-     <script src="public/scripts/user-profile.js" defer></script>
+    <script src="public/scripts/user-profile.js" defer></script>
     <title>Profile</title>
 </head>
 
@@ -100,7 +100,7 @@
                     </li>
                     <li class="profile-option container-center-center-row" id="logout">
                         <a>
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i><span class="option-text">Log out</span>
                         </a>
                     </li>
                 </ul>
@@ -108,13 +108,15 @@
             </div>
             <div id="user-data-box" class="container-start-center-row">
                 <div id="user-data" class="container-center-center-column">
-                    <form id="data-form">
-                        <input placeholder="username" type="text" class="input">
-                        <input placeholder="email" type="email" class="input">
-                        <input placeholder="password" type="password" class="input">
+                    <form id="data-form" method="POST" action="/update-user">
+                        <input name="username" placeholder="username" type="text" class="input">
+                        <input name="email" placeholder="email" type="email" class="input">
+                        <input name="password" placeholder="password" type="password" class="input">
                         <button type="submit" class="button-submit">Change</button>
                     </form>
-                    <button class="button-delete">Delete account</button>
+                    <form method="POST" action="/delete-user" id="delete-form" class="container-center-center-column" onsubmit="return confirm('Are you sure you want to delete your account?')">
+                        <button type="submit" class="button-delete">Delete account</button>
+                    </form>
 
                 </div>
                 <div id="user-image-box" class="container-center-center-row">

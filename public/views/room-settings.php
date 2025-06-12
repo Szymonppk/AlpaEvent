@@ -53,11 +53,11 @@
                 </li>
 
 
-                <li class="room-option container-center-center-row">
+                <!-- <li class="room-option container-center-center-row">
                     <a href="/room/<?php echo $variables[0]; ?>/room-event-info">
                         <i class="fa-solid fa-circle-info"></i><span class="option-text">Event Info</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="room-option container-center-center-row">
                     <a href="/room/<?php echo $variables[0]; ?>/room-event-settlements">

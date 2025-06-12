@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.classList.add('full-screen-image');
 
         const closeButton = document.createElement('button');
+        closeButton.classList.add('close-button');
         closeButton.textContent = 'Close';
         closeButton.addEventListener('click', () => {
             document.body.removeChild(fullScreenContainer);

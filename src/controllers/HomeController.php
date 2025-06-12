@@ -1,7 +1,7 @@
 <?php
 
 require_once "AppController.php";
-require_once __DIR__."/../models/EventDAO.php";
+require_once __DIR__."/../repository/EventDAO.php";
 
 class HomeController extends AppController
 {

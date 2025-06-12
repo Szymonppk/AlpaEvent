@@ -1,10 +1,10 @@
 <?php
 
 require_once "AppController.php";
-require_once __DIR__ . "/../models/Room.php";
-require_once __DIR__ . "/../models/RoomDAO.php";
-require_once __DIR__ . "/../models/EventDAO.php";
-require_once __DIR__ . "/../models/GalleryDAO.php";
+require_once __DIR__ . "/../repository/RoomDAO.php";
+require_once __DIR__ . "/../repository/EventDAO.php";
+require_once __DIR__ . "/../repository/GalleryDAO.php";
+require_once __DIR__."/../repository/NotesDAO.php";
 
 class RoomController extends AppController
 {
@@ -197,5 +197,20 @@ class RoomController extends AppController
     public function get_plans()
     {
         RoomDAO::getPlans();
+    }
+
+    public function add_note()
+    {
+        NotesDAO::add();
+    }
+
+    public function get_note()
+    {
+        NotesDAO::get();
+    }
+
+    public function update_note()
+    {
+        NotesDAO::update();
     }
 }

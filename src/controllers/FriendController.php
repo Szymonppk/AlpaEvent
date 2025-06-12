@@ -2,9 +2,9 @@
 
 require_once "AppController.php";
 require_once __DIR__.'/../models/User.php';
-require_once __DIR__.'/../models/UserDAO.php';
+require_once __DIR__.'/../repository/UserDAO.php';
 require_once __DIR__.'/../database/Database.php';
-require_once __DIR__.'/../models/FriendshipDAO.php';
+require_once __DIR__.'/../repository/FriendshipDAO.php';
 
 class FriendController extends AppController {
 

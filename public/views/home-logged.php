@@ -94,8 +94,8 @@
         <section class="container-center-center-row">
 
             <div id="search-bar-home">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input class="search-bar" type="text" placeholder="Search for event">
+                <!-- <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search-bar" type="text" placeholder="Search for event"> -->
             </div>
 
         </section>

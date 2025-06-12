@@ -1,5 +1,19 @@
 const logout = document.querySelector("#logout");
 
+
+
+const deleteBtn = document.querySelector(".button-delete");
+
+deleteBtn.addEventListener("submit",(e) =>{
+
+
+    if(!confirm('Are you sure you want to delete your account?'))
+    {
+        e.preventDefault();
+    };
+})
+
+
 logout.addEventListener("click",()=>{
 
 

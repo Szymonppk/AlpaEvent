@@ -391,6 +391,38 @@ main{
     background-color: #e63946;
 }
 
+#quick-notes {
+
+    height: 90vh;
+    background-color: #D9D9D9;
+    width:22%;
+    padding: 10px;
+    border-radius: 2em;
+    overflow-y: auto;
+}
+
+#add-note {
+    width: 100%;
+    padding: 5px;
+    font-size: 1.2rem;
+    background: #ffdf6c;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.sticky-note {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    background: #ffffcc;
+    border-radius: 5px;
+}
 
 @media (max-width:850px)
 {

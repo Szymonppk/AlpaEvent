@@ -2,8 +2,8 @@
 
 require_once "AppController.php";
 require_once __DIR__ . "/../models/Event.php";
-require_once __DIR__ . "/../models/EventDAO.php";
-require_once __DIR__ . "/../models/RoomDAO.php";
+require_once __DIR__ . "/../repository/EventDAO.php";
+require_once __DIR__ . "/../repository/RoomDAO.php";
 
 class EventController extends AppController
 {
