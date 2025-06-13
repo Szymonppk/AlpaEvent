@@ -60,6 +60,15 @@ class RoomDAO
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getRooms()
+    {
+        $db = (new Database())->getConnection();
+        $stmt = $db->prepare('SELECT r.room_id,e.event_name from room r join "event" e on r.event_id = e.event_id');
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function add_user($user_id, $room_id)
     {
         error_log("RoomDAO");
@@ -188,5 +197,18 @@ class RoomDAO
 
         $plans = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode(['status' => 'success', 'plans' => $plans]);
+    }
+    public static function deleteRoom($room_id)
+    {
+        $db = (new Database())->getConnection();
+
+        try {
+            $stmt = $db->prepare('DELETE FROM room WHERE room_id = :room_id');
+            $stmt->execute([':room_id' => $room_id]);
+            return true;
+        } catch (PDOException $e) {
+            error_log("Delete room error: " . $e->getMessage());
+            return false;
+        }
     }
 }

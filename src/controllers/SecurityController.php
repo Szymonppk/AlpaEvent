@@ -31,13 +31,24 @@ class SecurityController extends AppController
         $_SESSION['user'] = [
             'user_id' => $user['user_id'],
             'email' => $user['email'],
-            'username' => $user['username']
+            'username' => $user['username'],
+            'privileges' => $user['privileges']
         ];
 
+        if ($user['privileges'] == 'admin') {
+            $url = "http://" . $_SERVER['HTTP_HOST'];
+            header("Location: {$url}/admin-panel");
+            exit();
+        }
 
         $url = "http://" . $_SERVER['HTTP_HOST'];
         header("Location: {$url}/home-logged");
         exit();
+    }
+
+    public function get_users()
+    {
+        return UserDAO::getUsers();
     }
 
     public function register()
@@ -75,7 +86,8 @@ class SecurityController extends AppController
 
             'email' => $user['email'],
             'username' => $user['username'],
-            'user_id' => $user['user_id']
+            'user_id' => $user['user_id'],
+            'privileges' => $user['privileges']
 
         ];
 
@@ -131,13 +143,57 @@ class SecurityController extends AppController
             exit;
         }
 
-        $userId = $_SESSION['user']['user_id'];
+        $isAdmin = ($_SESSION['user']['privileges'] === 'admin');
+
+        $userId = $isAdmin ? ($_POST['user_id'] ?? null) : $_SESSION['user']['user_id'];
+
+        if (!$userId) {
+            echo "No user ID provided.";
+            return;
+        }
 
         $deleted = UserDAO::deleteUser($userId);
 
         if ($deleted) {
-            session_destroy();
+            if ($isAdmin && $userId !== $_SESSION['user']['user_id']) {
+
+                header("Location: /admin-panel");
+                exit;
+            } else {
+
+                session_destroy();
+                header("Location: /login");
+                exit;
+            }
+        } else {
+            echo "Failed to delete user.";
+        }
+    }
+
+    public function delete_user_by_admin()
+    {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['privileges'] !== 'admin') {
             header("Location: /login");
+            exit;
+        }
+
+        $userId = $_POST['user_id'] ?? null;
+
+        if (!$userId) {
+            echo "No user ID provided.";
+            return;
+        }
+
+        
+        if ($userId == $_SESSION['user']['user_id']) {
+            echo "Admin cannot delete their own account.";
+            return;
+        }
+
+        $deleted = UserDAO::deleteUser($userId);
+
+        if ($deleted) {
+            header("Location: /admin-panel");
             exit;
         } else {
             echo "Failed to delete user.";

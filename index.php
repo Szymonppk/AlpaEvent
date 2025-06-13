@@ -11,7 +11,7 @@ $paths =
  'room-chat', 'room-gallery','room-team', 'room-settings',
  'create-event','home-logged','forum','user-profile',
  'user-profile-friends','create-event','user-rooms','user-events'
- ,'home-logged'
+ ,'home-logged','admin-panel'
 ];
 
 for($i=0;$i<count($paths);$i++)
@@ -45,6 +45,8 @@ Router::get("get-note","RoomController");
 Router::post("update-note","RoomController");
 Router::post("update-user","SecurityController");
 Router::post("delete-user","SecurityController");
+Router::post("delete-user","SecurityController");
+Router::post("delete-user-by-admin","SecurityController");
 // Router::get('login','DefaultController');
 // Router::get('register','DefaultController');
 // Router::get('home','DefaultController');

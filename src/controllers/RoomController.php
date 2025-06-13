@@ -4,7 +4,7 @@ require_once "AppController.php";
 require_once __DIR__ . "/../repository/RoomDAO.php";
 require_once __DIR__ . "/../repository/EventDAO.php";
 require_once __DIR__ . "/../repository/GalleryDAO.php";
-require_once __DIR__."/../repository/NotesDAO.php";
+require_once __DIR__ . "/../repository/NotesDAO.php";
 
 class RoomController extends AppController
 {
@@ -29,7 +29,7 @@ class RoomController extends AppController
 
         switch ($subpage) {
             case 'room_dashboard':
-                $this->render('room-dashboard',["room_id" => $room_id, "room_data" => $room_data]);
+                $this->render('room-dashboard', ["room_id" => $room_id, "room_data" => $room_data]);
                 break;
             case 'room_chat':
                 $this->render('room-chat', [$room_id]);
@@ -45,7 +45,7 @@ class RoomController extends AppController
                 break;
             case 'room_gallery':
                 $photo_paths = $this->get_photos($room_id);
-                $this->render('room-gallery', ["room_id"=>$room_id,"photo_paths"=>$photo_paths]);
+                $this->render('room-gallery', ["room_id" => $room_id, "photo_paths" => $photo_paths]);
                 break;
             case 'room_settings':
                 $this->render('room-settings', [$room_id]);
@@ -184,6 +184,12 @@ class RoomController extends AppController
         }
     }
 
+    public function get_rooms()
+    {
+        return RoomDAO::getRooms();
+    }
+
+
     public function add_plan_point()
     {
         RoomDAO::addPlanPoint();
@@ -212,5 +218,27 @@ class RoomController extends AppController
     public function update_note()
     {
         NotesDAO::update();
+    }
+
+    public function delete_room()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $room_id = $_POST['room_id'] ?? null;
+
+            if (!$room_id) {
+                http_response_code(400);
+                echo "Missing room ID";
+                return;
+            }
+
+            $deleted = RoomDAO::deleteRoom($room_id);
+
+            if ($deleted) {
+                header("Location: /admin-panel");
+                exit;
+            } else {
+                echo "Failed to delete room.";
+            }
+        }
     }
 }

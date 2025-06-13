@@ -45,6 +45,14 @@ class DefaultController extends AppController{
         $this->render("room-chat");
     }
 
+    public function admin_panel()
+    {
+        $rooms = (new RoomController())->get_rooms();
+        $users = (new SecurityController)->get_users();
+        $admin_info = [$rooms,$users];
+        $this->render('admin-panel',["rooms"=>$rooms,"users"=>$users]);
+    }
+
     public function room_gallery()
     {
         $this->render("room-gallery");

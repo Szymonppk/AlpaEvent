@@ -28,7 +28,7 @@ class UserDAO
     {
         $db = (new Database())->getConnection();
         $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $db->prepare('INSERT INTO alpa_user (email,password,username) VALUES (:email,:password,:username)');
+        $stmt = $db->prepare("INSERT INTO alpa_user (email,password,username,privileges) VALUES (:email,:password,:username,'user')");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashed_pass);
         $stmt->bindParam(':username', $username);
@@ -52,6 +52,15 @@ class UserDAO
         return $result['password'];
     }
 
+    public static function getUsers()
+    {
+        $db = (new Database())->getConnection();
+        $stmt = $db->prepare('SELECT user_id,username,email FROM alpa_user');
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function updateUser($id, $username, $email, $password)
     {
         $db = (new Database())->getConnection();
@@ -65,6 +74,7 @@ class UserDAO
 
         return $stmt->execute();
     }
+
 
     public static function deleteUser($id)
     {
