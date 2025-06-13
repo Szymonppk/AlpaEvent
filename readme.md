@@ -66,9 +66,13 @@ ALPAEVENT/
 ├── uploads/ # User-uploaded files (e.g. images)
 │
 ├── .gitignore
+|── alpa_backup_final.sql
 ├── composer.json
 ├── docker-compose.yaml
 ├── index.php # App entry point
 ├── Router.php # Basic routing handler
 ├── secret.env # Environment variables (DB config etc.)
 └── readme.md # 
+
+Database
+![ERD Diagram](./FinalAlpaEventERD.png)
