@@ -16,11 +16,12 @@ class RoomController extends AppController
         $subpage = $params[1] ?? 'room_dashboard';
         $user_id = $_SESSION['user']['user_id'];
 
+        $room_id = (int)$room_id;
         if (!$room_id) {
             die("Missing room id!");
         }
 
-        $access = RoomDAO::findById($user_id, $room_id);
+        $access = RoomDAO::find_by_id($user_id, $room_id);
 
         if (!$access) {
             die("No privilages");
@@ -62,7 +63,7 @@ class RoomController extends AppController
         $user_id = $_SESSION["user"]["user_id"];
         $event_id = $_GET["event_id"] ?? null;
         error_log($event_id);
-        $room_id = RoomDAO::getFirstRoom($user_id, $event_id);
+        $room_id = RoomDAO::get_first_room($user_id, $event_id);
 
         echo json_encode($room_id);
     }
@@ -73,7 +74,7 @@ class RoomController extends AppController
         $user_id = $_SESSION["user"]["user_id"];
         $room_id = $_GET["room_id"] ?? null;
 
-        $rooms = RoomDAO::findByID($user_id, $room_id);
+        $rooms = RoomDAO::find_by_ID($user_id, $room_id);
 
         echo json_encode($rooms);
     }
@@ -84,7 +85,7 @@ class RoomController extends AppController
         $user_id = $_SESSION["user"]["user_id"];
 
 
-        return RoomDAO::findByID($user_id, $room_id);
+        return RoomDAO::find_By_ID($user_id, $room_id);
     }
 
     public function get_photos($room_id)
@@ -96,7 +97,8 @@ class RoomController extends AppController
     {
         header('Content-Type: application/json');
         $user_id = $_SESSION["user"]["user_id"];
-        $event_id = $_GET['event_id'] ?? null;
+        $data = json_decode(file_get_contents("php://input"), true);
+        $event_id = $data['event_id'] ?? null;
 
 
         if (!$event_id || !$user_id) {
@@ -106,8 +108,8 @@ class RoomController extends AppController
         }
         $reference_event = EventDAO::get_event_by_id($event_id);
 
-        $room_id = RoomDAO::createRoom($event_id, $user_id);
-        GalleryDAO::create_gallery($room_id);
+        $room_id = RoomDAO::create_room($event_id, $user_id);
+       
 
         if (!$room_id) {
             http_response_code(500);
@@ -192,17 +194,17 @@ class RoomController extends AppController
 
     public function add_plan_point()
     {
-        RoomDAO::addPlanPoint();
+        RoomDAO::add_plan_point();
     }
 
     public function delete_plan_point()
     {
-        RoomDAO::deletePlanPoint();
+        RoomDAO::delete_plan_point();
     }
 
     public function get_plans()
     {
-        RoomDAO::getPlans();
+        RoomDAO::get_plans();
     }
 
     public function add_note()
@@ -231,7 +233,7 @@ class RoomController extends AppController
                 return;
             }
 
-            $deleted = RoomDAO::deleteRoom($room_id);
+            $deleted = RoomDAO::delete_room($room_id);
 
             if ($deleted) {
                 header("Location: /admin-panel");

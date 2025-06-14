@@ -5,7 +5,7 @@ require_once __DIR__ . '/EventDAO.php';
 
 class RoomDAO
 {
-    public static function findById($user_id, $room_id)
+    public static function find_by_id($user_id, $room_id)
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('SELECT e.* FROM room_user ru join room r on r.room_id = ru.room_id join event e on e.event_id = r.event_id WHERE ru.user_id = :user_id AND ru.room_id = :room_id');
@@ -17,7 +17,7 @@ class RoomDAO
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function createRoom($event_id, $user_id)
+    public static function create_room($event_id, $user_id)
     {
         $db = (new Database())->getConnection();
         $stmt_1 = $db->prepare('INSERT INTO room (event_id,created_at) values (:event_id,NOW())');
@@ -42,12 +42,13 @@ class RoomDAO
             return false;
         }
 
+        GalleryDAO::create_gallery($room_id);
+
         return $room_id;
     }
 
-    public static function getRoomInfo() {}
 
-    public static function getFirstRoom($user_id, $event_id)
+    public static function get_first_room($user_id, $event_id)
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('SELECT ru.room_id FROM room_user ru join room r on ru.room_id=r.room_id join event_user eu on ru.user_id = eu.user_id WHERE r.event_id = :event_id and ru.user_id = :user_id order by ru.room_id desc limit 1');
@@ -137,7 +138,7 @@ class RoomDAO
         return $stmt_2->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function addPlanPoint()
+    public static function add_plan_point()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $input = json_decode(file_get_contents("php://input"), true);
@@ -161,7 +162,7 @@ class RoomDAO
         }
     }
 
-    public static function deletePlanPoint()
+    public static function delete_plan_point()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $input = json_decode(file_get_contents("php://input"), true);
@@ -180,7 +181,7 @@ class RoomDAO
         }
     }
 
-    public static function getPlans()
+    public static function get_plans()
     {
         header('Content-Type: application/json');
 
@@ -198,7 +199,7 @@ class RoomDAO
         $plans = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode(['status' => 'success', 'plans' => $plans]);
     }
-    public static function deleteRoom($room_id)
+    public static function delete_room($room_id)
     {
         $db = (new Database())->getConnection();
 

@@ -45,7 +45,8 @@ search_input.addEventListener('input',async(e) => {
     searchContainer.appendChild(friendBox);
 });
 
-window.addEventListener('DOMContentLoaded', async () => {
+async function getFriends()
+{ 
     const res = await fetch('/get-friends');
     const friends = await res.json();
 
@@ -62,7 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         friendBox.appendChild(friendItem);
         staticContainer.appendChild(friendBox);
     });
-});
+}
 
 async function addFriend(friendId) {
     const res = await fetch('/add-friend', {
@@ -77,3 +78,5 @@ async function addFriend(friendId) {
         alert("Error adding friend.");
     }
 }
+
+getFriends();

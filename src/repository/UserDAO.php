@@ -4,7 +4,7 @@ require_once __DIR__ . '/../database/Database.php';
 
 class UserDAO
 {
-    public static function findByEmail($email)
+    public static function find_by_email($email)
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('SELECT * FROM alpa_user WHERE email=:email');
@@ -14,7 +14,7 @@ class UserDAO
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function findByUsername($username)
+    public static function find_by_username($username)
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('SELECT * FROM alpa_user WHERE username=:username');
@@ -36,7 +36,7 @@ class UserDAO
         return $stmt->execute();
     }
 
-    public static function findHashedPassword($email, $input_password)
+    public static function find_hashed_password($email, $input_password)
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('SELECT password FROM alpa_user WHERE email=:email');
@@ -52,7 +52,7 @@ class UserDAO
         return $result['password'];
     }
 
-    public static function getUsers()
+    public static function get_users()
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('SELECT user_id,username,email FROM alpa_user');
@@ -61,7 +61,7 @@ class UserDAO
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function updateUser($id, $username, $email, $password)
+    public static function update_user($id, $username, $email, $password)
     {
         $db = (new Database())->getConnection();
         $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
@@ -76,7 +76,7 @@ class UserDAO
     }
 
 
-    public static function deleteUser($id)
+    public static function delete_user($id)
     {
         $db = (new Database())->getConnection();
         $stmt = $db->prepare('DELETE FROM alpa_user WHERE user_id = :id');

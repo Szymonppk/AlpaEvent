@@ -16,13 +16,13 @@ class SecurityController extends AppController
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $user = UserDAO::findByEmail($email);
+        $user = UserDAO::find_by_email($email);
 
         if (!$user) {
             return $this->render("login", ['messages' => ['User with email ' . $email . ' does not exist.']]);
         }
 
-        $result_hashed = UserDAO::findHashedPassword($email, $password);
+        $result_hashed = UserDAO::find_hashed_password($email, $password);
 
         if (!password_verify($password, $result_hashed)) {
             return $this->render("login", ['messages' => ['User with this password does not exist.']]);
@@ -48,7 +48,7 @@ class SecurityController extends AppController
 
     public function get_users()
     {
-        return UserDAO::getUsers();
+        return UserDAO::get_users();
     }
 
     public function register()
@@ -62,13 +62,13 @@ class SecurityController extends AppController
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $found_email = UserDAO::findByEmail($email);
+        $found_email = UserDAO::find_by_email($email);
 
         if ($found_email) {
             return $this->render('register', ['messages' => ['User with that email already exist']]);
         }
 
-        $found_username = UserDAO::findByUsername($username);
+        $found_username = UserDAO::find_by_username($username);
 
         if ($found_username) {
             return $this->render('register', ['messages' => ['User with that username already exist']]);
@@ -80,7 +80,7 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Error, could not make accont']]);
         }
 
-        $user = UserDAO::findByEmail($email);
+        $user = UserDAO::find_by_email($email);
 
         $_SESSION['user'] = [
 
@@ -125,7 +125,7 @@ class SecurityController extends AppController
         }
 
 
-        $updated = UserDAO::updateUser($userId, $username, $email, $password);
+        $updated = UserDAO::update_user($userId, $username, $email, $password);
 
         if ($updated) {
             session_destroy();
@@ -152,7 +152,7 @@ class SecurityController extends AppController
             return;
         }
 
-        $deleted = UserDAO::deleteUser($userId);
+        $deleted = UserDAO::delete_user($userId);
 
         if ($deleted) {
             if ($isAdmin && $userId !== $_SESSION['user']['user_id']) {
@@ -190,7 +190,7 @@ class SecurityController extends AppController
             return;
         }
 
-        $deleted = UserDAO::deleteUser($userId);
+        $deleted = UserDAO::delete_user($userId);
 
         if ($deleted) {
             header("Location: /admin-panel");

@@ -75,4 +75,4 @@ ALPAEVENT/
 └── readme.md # 
 
 Database
-![ERD Diagram](./FinalAlpaEventERD.png)
+![ERD Diagram](./AppPhotos/FinalAlpaEventERD.png)

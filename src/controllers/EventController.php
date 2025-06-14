@@ -46,8 +46,8 @@ class EventController extends AppController
         $url = "http://" . $_SERVER['HTTP_HOST'];
 
         if ($action === 'event_and_room') {
-            $room_id = RoomDAO::createRoom($event_id,$user_id);
-            header("Location: {$url}/{$room_id}/room-dashboard}");
+            $room_id = RoomDAO::create_room($event_id,$user_id);
+            header("Location: {$url}/room/{$room_id}/room-dashboard");
         } 
         else {
             header("Location: {$url}/user-events");
