@@ -43,36 +43,49 @@
 
 ---
 
-## 📁 Project Structure
+## 📊 Database Structure
 
-ALPAEVENT/
-│
-├── docker/ # Docker configs
-│ ├── db/ # PostgreSQL setup
-│ ├── nginx/ # Nginx config
-│ └── php/ # PHP Dockerfile
-│
-├── public/ # Public assets
-│ ├── scripts/ # JavaScript files
-│ ├── styles/ # CSS files
-│ └── views/ # HTML templates (optional)
-│
-├── src/
-│ ├── controllers/ # Controller classes (e.g. SecurityController, RoomController)
-│ ├── database/ # DB connection
-│ ├── models/ # Entity classes 
-│ └── repository/ # DAO classes (UserDAO, RoomDAO, etc.)
-│
-├── uploads/ # User-uploaded files (e.g. images)
-│
-├── .gitignore
-|── alpa_backup_final.sql
-├── composer.json
-├── docker-compose.yaml
-├── index.php # App entry point
-├── Router.php # Basic routing handler
-├── secret.env # Environment variables (DB config etc.)
-└── readme.md # 
-
-Database
 ![ERD Diagram](./AppPhotos/FinalAlpaEventERD.png)
+
+---
+
+## 🔐 Login
+
+![Login](./AppPhotos/AlpaLogin.png)
+
+---
+
+## 🏠 Home Page
+
+![Home](./AppPhotos/AlpaHome.png)
+
+---
+
+## 📅 Events List
+
+![Events](./AppPhotos/AlpaEvents.png)
+
+---
+
+## 📊 Room Dashboard
+
+![Dashboard](./AppPhotos/AlpaDashboard.png)
+
+---
+
+## 🖼️ Gallery View
+
+![Gallery](./AppPhotos/AlpaGallery.png)
+
+---
+
+## 🧩 Plan Management
+
+![Plan](./AppPhotos/AlpaPlan.png)
+
+---
+
+## 👥 Team View
+
+![Team](./AppPhotos/AlpaTeam.png)
+
