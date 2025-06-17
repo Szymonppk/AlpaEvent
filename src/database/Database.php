@@ -36,6 +36,6 @@ class Database
 
     public function disconnect()
     {
-        //
+        $this->connection = null;
     }
 }
